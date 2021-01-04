@@ -101,6 +101,7 @@ namespace QuanLiNhaHang_nhom1
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -115,11 +116,13 @@ namespace QuanLiNhaHang_nhom1
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.panel1);
             this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Location = new System.Drawing.Point(36, 42);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
@@ -132,7 +135,7 @@ namespace QuanLiNhaHang_nhom1
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(30, 349);
+            this.checkBox1.Location = new System.Drawing.Point(45, 338);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(196, 29);
             this.checkBox1.TabIndex = 41;
@@ -143,7 +146,7 @@ namespace QuanLiNhaHang_nhom1
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 298);
+            this.label3.Location = new System.Drawing.Point(40, 279);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(202, 25);
             this.label3.TabIndex = 40;
@@ -209,7 +212,7 @@ namespace QuanLiNhaHang_nhom1
             this.comboBox2.Items.AddRange(new object[] {
             "show all",
             "show with can use"});
-            this.comboBox2.Location = new System.Drawing.Point(541, 17);
+            this.comboBox2.Location = new System.Drawing.Point(45, 219);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(6);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(214, 33);
@@ -233,8 +236,8 @@ namespace QuanLiNhaHang_nhom1
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(2219, 1038);
-            this.splitContainer1.SplitterDistance = 1400;
+            this.splitContainer1.Size = new System.Drawing.Size(1539, 913);
+            this.splitContainer1.SplitterDistance = 1006;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -314,10 +317,9 @@ namespace QuanLiNhaHang_nhom1
             this.splitContainer2.Panel2.Controls.Add(this.button4);
             this.splitContainer2.Panel2.Controls.Add(this.button2);
             this.splitContainer2.Panel2.Controls.Add(this.button1);
-            this.splitContainer2.Panel2.Controls.Add(this.comboBox2);
             this.splitContainer2.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer2.Size = new System.Drawing.Size(1400, 1038);
+            this.splitContainer2.Size = new System.Drawing.Size(1006, 913);
             this.splitContainer2.SplitterDistance = 800;
             this.splitContainer2.SplitterIncrement = 10;
             this.splitContainer2.SplitterWidth = 10;
@@ -327,10 +329,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox17.Image = ((System.Drawing.Image)(resources.GetObject("checkBox17.Image")));
             this.checkBox17.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox17.Location = new System.Drawing.Point(240, 709);
+            this.checkBox17.Location = new System.Drawing.Point(313, 895);
             this.checkBox17.Name = "checkBox17";
             this.checkBox17.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox17.Size = new System.Drawing.Size(164, 105);
+            this.checkBox17.Size = new System.Drawing.Size(189, 135);
             this.checkBox17.TabIndex = 61;
             this.checkBox17.Text = "Bàn 17";
             this.checkBox17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -340,10 +342,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox18.Image = ((System.Drawing.Image)(resources.GetObject("checkBox18.Image")));
             this.checkBox18.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox18.Location = new System.Drawing.Point(459, 701);
+            this.checkBox18.Location = new System.Drawing.Point(528, 895);
             this.checkBox18.Name = "checkBox18";
             this.checkBox18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox18.Size = new System.Drawing.Size(164, 105);
+            this.checkBox18.Size = new System.Drawing.Size(192, 135);
             this.checkBox18.TabIndex = 60;
             this.checkBox18.Text = "Bàn 18";
             this.checkBox18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -353,10 +355,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox19.Image = ((System.Drawing.Image)(resources.GetObject("checkBox19.Image")));
             this.checkBox19.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox19.Location = new System.Drawing.Point(30, 824);
+            this.checkBox19.Location = new System.Drawing.Point(84, 1063);
             this.checkBox19.Name = "checkBox19";
             this.checkBox19.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox19.Size = new System.Drawing.Size(164, 105);
+            this.checkBox19.Size = new System.Drawing.Size(191, 135);
             this.checkBox19.TabIndex = 59;
             this.checkBox19.Text = "Bàn 19";
             this.checkBox19.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -366,10 +368,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox20.Image = ((System.Drawing.Image)(resources.GetObject("checkBox20.Image")));
             this.checkBox20.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox20.Location = new System.Drawing.Point(240, 832);
+            this.checkBox20.Location = new System.Drawing.Point(313, 1063);
             this.checkBox20.Name = "checkBox20";
             this.checkBox20.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox20.Size = new System.Drawing.Size(164, 105);
+            this.checkBox20.Size = new System.Drawing.Size(189, 135);
             this.checkBox20.TabIndex = 58;
             this.checkBox20.Text = "Bàn 20";
             this.checkBox20.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -379,10 +381,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox21.Image = ((System.Drawing.Image)(resources.GetObject("checkBox21.Image")));
             this.checkBox21.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox21.Location = new System.Drawing.Point(459, 824);
+            this.checkBox21.Location = new System.Drawing.Point(528, 1063);
             this.checkBox21.Name = "checkBox21";
             this.checkBox21.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox21.Size = new System.Drawing.Size(164, 105);
+            this.checkBox21.Size = new System.Drawing.Size(192, 135);
             this.checkBox21.TabIndex = 57;
             this.checkBox21.Text = "Bàn 21";
             this.checkBox21.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -392,10 +394,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox22.Image = ((System.Drawing.Image)(resources.GetObject("checkBox22.Image")));
             this.checkBox22.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox22.Location = new System.Drawing.Point(30, 947);
+            this.checkBox22.Location = new System.Drawing.Point(84, 1227);
             this.checkBox22.Name = "checkBox22";
             this.checkBox22.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox22.Size = new System.Drawing.Size(164, 105);
+            this.checkBox22.Size = new System.Drawing.Size(191, 135);
             this.checkBox22.TabIndex = 56;
             this.checkBox22.Text = "Bàn 22";
             this.checkBox22.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -405,10 +407,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox23.Image = ((System.Drawing.Image)(resources.GetObject("checkBox23.Image")));
             this.checkBox23.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox23.Location = new System.Drawing.Point(240, 955);
+            this.checkBox23.Location = new System.Drawing.Point(313, 1227);
             this.checkBox23.Name = "checkBox23";
             this.checkBox23.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox23.Size = new System.Drawing.Size(164, 105);
+            this.checkBox23.Size = new System.Drawing.Size(189, 135);
             this.checkBox23.TabIndex = 55;
             this.checkBox23.Text = "Bàn 23";
             this.checkBox23.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -418,10 +420,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox24.Image = ((System.Drawing.Image)(resources.GetObject("checkBox24.Image")));
             this.checkBox24.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox24.Location = new System.Drawing.Point(459, 947);
+            this.checkBox24.Location = new System.Drawing.Point(528, 1227);
             this.checkBox24.Name = "checkBox24";
             this.checkBox24.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox24.Size = new System.Drawing.Size(164, 105);
+            this.checkBox24.Size = new System.Drawing.Size(192, 135);
             this.checkBox24.TabIndex = 54;
             this.checkBox24.Text = "Bàn 24";
             this.checkBox24.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -431,10 +433,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox25.Image = ((System.Drawing.Image)(resources.GetObject("checkBox25.Image")));
             this.checkBox25.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox25.Location = new System.Drawing.Point(30, 1070);
+            this.checkBox25.Location = new System.Drawing.Point(84, 1381);
             this.checkBox25.Name = "checkBox25";
             this.checkBox25.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox25.Size = new System.Drawing.Size(164, 105);
+            this.checkBox25.Size = new System.Drawing.Size(191, 135);
             this.checkBox25.TabIndex = 53;
             this.checkBox25.Text = "Bàn 25";
             this.checkBox25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -444,10 +446,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox26.Image = ((System.Drawing.Image)(resources.GetObject("checkBox26.Image")));
             this.checkBox26.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox26.Location = new System.Drawing.Point(240, 1078);
+            this.checkBox26.Location = new System.Drawing.Point(313, 1381);
             this.checkBox26.Name = "checkBox26";
             this.checkBox26.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox26.Size = new System.Drawing.Size(164, 105);
+            this.checkBox26.Size = new System.Drawing.Size(189, 135);
             this.checkBox26.TabIndex = 52;
             this.checkBox26.Text = "Bàn 26";
             this.checkBox26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -457,10 +459,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox27.Image = ((System.Drawing.Image)(resources.GetObject("checkBox27.Image")));
             this.checkBox27.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox27.Location = new System.Drawing.Point(459, 1070);
+            this.checkBox27.Location = new System.Drawing.Point(528, 1381);
             this.checkBox27.Name = "checkBox27";
             this.checkBox27.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox27.Size = new System.Drawing.Size(164, 105);
+            this.checkBox27.Size = new System.Drawing.Size(192, 135);
             this.checkBox27.TabIndex = 51;
             this.checkBox27.Text = "Bàn 27";
             this.checkBox27.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -470,10 +472,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox28.Image = ((System.Drawing.Image)(resources.GetObject("checkBox28.Image")));
             this.checkBox28.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox28.Location = new System.Drawing.Point(30, 1193);
+            this.checkBox28.Location = new System.Drawing.Point(84, 1552);
             this.checkBox28.Name = "checkBox28";
             this.checkBox28.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox28.Size = new System.Drawing.Size(164, 105);
+            this.checkBox28.Size = new System.Drawing.Size(191, 135);
             this.checkBox28.TabIndex = 50;
             this.checkBox28.Text = "Bàn 28";
             this.checkBox28.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -483,10 +485,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox29.Image = ((System.Drawing.Image)(resources.GetObject("checkBox29.Image")));
             this.checkBox29.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox29.Location = new System.Drawing.Point(240, 1201);
+            this.checkBox29.Location = new System.Drawing.Point(313, 1552);
             this.checkBox29.Name = "checkBox29";
             this.checkBox29.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox29.Size = new System.Drawing.Size(164, 105);
+            this.checkBox29.Size = new System.Drawing.Size(189, 135);
             this.checkBox29.TabIndex = 49;
             this.checkBox29.Text = "Bàn 29";
             this.checkBox29.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -496,10 +498,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox30.Image = ((System.Drawing.Image)(resources.GetObject("checkBox30.Image")));
             this.checkBox30.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox30.Location = new System.Drawing.Point(459, 1193);
+            this.checkBox30.Location = new System.Drawing.Point(528, 1552);
             this.checkBox30.Name = "checkBox30";
             this.checkBox30.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox30.Size = new System.Drawing.Size(164, 105);
+            this.checkBox30.Size = new System.Drawing.Size(192, 135);
             this.checkBox30.TabIndex = 48;
             this.checkBox30.Text = "Bàn 30";
             this.checkBox30.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -509,10 +511,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox9.Image = ((System.Drawing.Image)(resources.GetObject("checkBox9.Image")));
             this.checkBox9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox9.Location = new System.Drawing.Point(459, 332);
+            this.checkBox9.Location = new System.Drawing.Point(528, 421);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox9.Size = new System.Drawing.Size(164, 105);
+            this.checkBox9.Size = new System.Drawing.Size(192, 135);
             this.checkBox9.TabIndex = 47;
             this.checkBox9.Text = "Bàn 9";
             this.checkBox9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -522,10 +524,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox10.Image = ((System.Drawing.Image)(resources.GetObject("checkBox10.Image")));
             this.checkBox10.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox10.Location = new System.Drawing.Point(30, 455);
+            this.checkBox10.Location = new System.Drawing.Point(84, 574);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox10.Size = new System.Drawing.Size(164, 105);
+            this.checkBox10.Size = new System.Drawing.Size(191, 135);
             this.checkBox10.TabIndex = 46;
             this.checkBox10.Text = "Bàn 10";
             this.checkBox10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -535,10 +537,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox11.Image = ((System.Drawing.Image)(resources.GetObject("checkBox11.Image")));
             this.checkBox11.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox11.Location = new System.Drawing.Point(240, 463);
+            this.checkBox11.Location = new System.Drawing.Point(313, 574);
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox11.Size = new System.Drawing.Size(164, 105);
+            this.checkBox11.Size = new System.Drawing.Size(189, 135);
             this.checkBox11.TabIndex = 45;
             this.checkBox11.Text = "Bàn 11";
             this.checkBox11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -548,10 +550,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox12.Image = ((System.Drawing.Image)(resources.GetObject("checkBox12.Image")));
             this.checkBox12.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox12.Location = new System.Drawing.Point(459, 455);
+            this.checkBox12.Location = new System.Drawing.Point(528, 574);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox12.Size = new System.Drawing.Size(164, 105);
+            this.checkBox12.Size = new System.Drawing.Size(192, 135);
             this.checkBox12.TabIndex = 44;
             this.checkBox12.Text = "Bàn 12";
             this.checkBox12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -561,10 +563,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox13.Image = ((System.Drawing.Image)(resources.GetObject("checkBox13.Image")));
             this.checkBox13.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox13.Location = new System.Drawing.Point(30, 578);
+            this.checkBox13.Location = new System.Drawing.Point(84, 737);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox13.Size = new System.Drawing.Size(164, 105);
+            this.checkBox13.Size = new System.Drawing.Size(191, 135);
             this.checkBox13.TabIndex = 43;
             this.checkBox13.Text = "Bàn 13";
             this.checkBox13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -574,10 +576,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox14.Image = ((System.Drawing.Image)(resources.GetObject("checkBox14.Image")));
             this.checkBox14.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox14.Location = new System.Drawing.Point(240, 586);
+            this.checkBox14.Location = new System.Drawing.Point(313, 737);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox14.Size = new System.Drawing.Size(164, 105);
+            this.checkBox14.Size = new System.Drawing.Size(189, 135);
             this.checkBox14.TabIndex = 42;
             this.checkBox14.Text = "Bàn 14";
             this.checkBox14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -587,10 +589,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox15.Image = ((System.Drawing.Image)(resources.GetObject("checkBox15.Image")));
             this.checkBox15.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox15.Location = new System.Drawing.Point(459, 578);
+            this.checkBox15.Location = new System.Drawing.Point(528, 737);
             this.checkBox15.Name = "checkBox15";
             this.checkBox15.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox15.Size = new System.Drawing.Size(164, 105);
+            this.checkBox15.Size = new System.Drawing.Size(192, 135);
             this.checkBox15.TabIndex = 41;
             this.checkBox15.Text = "Bàn 15";
             this.checkBox15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -600,10 +602,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox16.Image = ((System.Drawing.Image)(resources.GetObject("checkBox16.Image")));
             this.checkBox16.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox16.Location = new System.Drawing.Point(30, 701);
+            this.checkBox16.Location = new System.Drawing.Point(84, 895);
             this.checkBox16.Name = "checkBox16";
             this.checkBox16.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox16.Size = new System.Drawing.Size(164, 105);
+            this.checkBox16.Size = new System.Drawing.Size(191, 135);
             this.checkBox16.TabIndex = 40;
             this.checkBox16.Text = "Bàn 16";
             this.checkBox16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -613,10 +615,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox5.Image = ((System.Drawing.Image)(resources.GetObject("checkBox5.Image")));
             this.checkBox5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox5.Location = new System.Drawing.Point(240, 217);
+            this.checkBox5.Location = new System.Drawing.Point(313, 253);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox5.Size = new System.Drawing.Size(164, 105);
+            this.checkBox5.Size = new System.Drawing.Size(189, 135);
             this.checkBox5.TabIndex = 39;
             this.checkBox5.Text = "Bàn 5";
             this.checkBox5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -626,10 +628,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox6.Image = ((System.Drawing.Image)(resources.GetObject("checkBox6.Image")));
             this.checkBox6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox6.Location = new System.Drawing.Point(459, 209);
+            this.checkBox6.Location = new System.Drawing.Point(528, 253);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox6.Size = new System.Drawing.Size(164, 105);
+            this.checkBox6.Size = new System.Drawing.Size(192, 135);
             this.checkBox6.TabIndex = 38;
             this.checkBox6.Text = "Bàn 6";
             this.checkBox6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -639,10 +641,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox7.Image = ((System.Drawing.Image)(resources.GetObject("checkBox7.Image")));
             this.checkBox7.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox7.Location = new System.Drawing.Point(30, 332);
+            this.checkBox7.Location = new System.Drawing.Point(84, 421);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox7.Size = new System.Drawing.Size(164, 105);
+            this.checkBox7.Size = new System.Drawing.Size(191, 135);
             this.checkBox7.TabIndex = 37;
             this.checkBox7.Text = "Bàn 7";
             this.checkBox7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -652,10 +654,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox8.Image = ((System.Drawing.Image)(resources.GetObject("checkBox8.Image")));
             this.checkBox8.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox8.Location = new System.Drawing.Point(240, 340);
+            this.checkBox8.Location = new System.Drawing.Point(313, 421);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox8.Size = new System.Drawing.Size(164, 105);
+            this.checkBox8.Size = new System.Drawing.Size(189, 135);
             this.checkBox8.TabIndex = 36;
             this.checkBox8.Text = "Bàn 8";
             this.checkBox8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -665,10 +667,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox3.Image = ((System.Drawing.Image)(resources.GetObject("checkBox3.Image")));
             this.checkBox3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox3.Location = new System.Drawing.Point(459, 86);
+            this.checkBox3.Location = new System.Drawing.Point(530, 76);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox3.Size = new System.Drawing.Size(164, 105);
+            this.checkBox3.Size = new System.Drawing.Size(189, 144);
             this.checkBox3.TabIndex = 35;
             this.checkBox3.Text = "Bàn 3";
             this.checkBox3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -678,10 +680,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox4.Image = ((System.Drawing.Image)(resources.GetObject("checkBox4.Image")));
             this.checkBox4.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox4.Location = new System.Drawing.Point(30, 209);
+            this.checkBox4.Location = new System.Drawing.Point(84, 253);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox4.Size = new System.Drawing.Size(164, 105);
+            this.checkBox4.Size = new System.Drawing.Size(191, 135);
             this.checkBox4.TabIndex = 34;
             this.checkBox4.Text = "Bàn 4";
             this.checkBox4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -691,10 +693,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox2.Image = ((System.Drawing.Image)(resources.GetObject("checkBox2.Image")));
             this.checkBox2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox2.Location = new System.Drawing.Point(240, 89);
+            this.checkBox2.Location = new System.Drawing.Point(313, 76);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox2.Size = new System.Drawing.Size(164, 105);
+            this.checkBox2.Size = new System.Drawing.Size(189, 144);
             this.checkBox2.TabIndex = 33;
             this.checkBox2.Text = "Bàn 2";
             this.checkBox2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -704,10 +706,10 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.checkBox31.Image = ((System.Drawing.Image)(resources.GetObject("checkBox31.Image")));
             this.checkBox31.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.checkBox31.Location = new System.Drawing.Point(30, 86);
+            this.checkBox31.Location = new System.Drawing.Point(84, 76);
             this.checkBox31.Name = "checkBox31";
             this.checkBox31.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkBox31.Size = new System.Drawing.Size(164, 105);
+            this.checkBox31.Size = new System.Drawing.Size(189, 144);
             this.checkBox31.TabIndex = 32;
             this.checkBox31.Text = "Bàn 1";
             this.checkBox31.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -724,6 +726,7 @@ namespace QuanLiNhaHang_nhom1
             this.button25.Text = "Bàn 25";
             this.button25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
             // 
             // button26
             // 
@@ -736,6 +739,7 @@ namespace QuanLiNhaHang_nhom1
             this.button26.Text = "Bàn 26";
             this.button26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // button27
             // 
@@ -748,6 +752,7 @@ namespace QuanLiNhaHang_nhom1
             this.button27.Text = "Bàn 27";
             this.button27.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
             // button28
             // 
@@ -760,6 +765,7 @@ namespace QuanLiNhaHang_nhom1
             this.button28.Text = "Bàn 28";
             this.button28.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
             // 
             // button29
             // 
@@ -772,6 +778,7 @@ namespace QuanLiNhaHang_nhom1
             this.button29.Text = "Bàn 29";
             this.button29.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
             // 
             // button30
             // 
@@ -784,6 +791,7 @@ namespace QuanLiNhaHang_nhom1
             this.button30.Text = "Bàn 30";
             this.button30.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
             // 
             // button17
             // 
@@ -796,6 +804,7 @@ namespace QuanLiNhaHang_nhom1
             this.button17.Text = "Bàn 17";
             this.button17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button18
             // 
@@ -808,6 +817,7 @@ namespace QuanLiNhaHang_nhom1
             this.button18.Text = "Bàn 18";
             this.button18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button19
             // 
@@ -820,6 +830,7 @@ namespace QuanLiNhaHang_nhom1
             this.button19.Text = "Bàn 19";
             this.button19.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button20
             // 
@@ -832,6 +843,7 @@ namespace QuanLiNhaHang_nhom1
             this.button20.Text = "Bàn 20";
             this.button20.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // button21
             // 
@@ -844,6 +856,7 @@ namespace QuanLiNhaHang_nhom1
             this.button21.Text = "Bàn 21";
             this.button21.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // button22
             // 
@@ -856,6 +869,7 @@ namespace QuanLiNhaHang_nhom1
             this.button22.Text = "Bàn22";
             this.button22.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // button23
             // 
@@ -868,6 +882,7 @@ namespace QuanLiNhaHang_nhom1
             this.button23.Text = "Bàn 23";
             this.button23.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
             // button24
             // 
@@ -880,6 +895,7 @@ namespace QuanLiNhaHang_nhom1
             this.button24.Text = "Bàn 24";
             this.button24.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // button9
             // 
@@ -892,6 +908,7 @@ namespace QuanLiNhaHang_nhom1
             this.button9.Text = "Bàn 9";
             this.button9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -904,6 +921,7 @@ namespace QuanLiNhaHang_nhom1
             this.button10.Text = "Bàn 10";
             this.button10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -916,6 +934,7 @@ namespace QuanLiNhaHang_nhom1
             this.button11.Text = "Bàn 11";
             this.button11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
@@ -928,6 +947,7 @@ namespace QuanLiNhaHang_nhom1
             this.button12.Text = "Bàn 12";
             this.button12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
@@ -940,6 +960,7 @@ namespace QuanLiNhaHang_nhom1
             this.button13.Text = "Bàn 13";
             this.button13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -952,6 +973,7 @@ namespace QuanLiNhaHang_nhom1
             this.button14.Text = "Bàn 14";
             this.button14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button15
             // 
@@ -964,6 +986,7 @@ namespace QuanLiNhaHang_nhom1
             this.button15.Text = "Bàn 15";
             this.button15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button16
             // 
@@ -976,6 +999,7 @@ namespace QuanLiNhaHang_nhom1
             this.button16.Text = "Bàn 16";
             this.button16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button5
             // 
@@ -988,6 +1012,7 @@ namespace QuanLiNhaHang_nhom1
             this.button5.Text = "Bàn 5";
             this.button5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -1000,6 +1025,7 @@ namespace QuanLiNhaHang_nhom1
             this.button6.Text = "Bàn 6";
             this.button6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -1012,6 +1038,7 @@ namespace QuanLiNhaHang_nhom1
             this.button7.Text = "Bàn 7";
             this.button7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -1024,6 +1051,7 @@ namespace QuanLiNhaHang_nhom1
             this.button8.Text = "Bàn 8";
             this.button8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button3
             // 
@@ -1036,6 +1064,7 @@ namespace QuanLiNhaHang_nhom1
             this.button3.Text = "Bàn 3";
             this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -1048,6 +1077,7 @@ namespace QuanLiNhaHang_nhom1
             this.button4.Text = "Bàn 4";
             this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
@@ -1060,6 +1090,7 @@ namespace QuanLiNhaHang_nhom1
             this.button2.Text = "Bàn 2";
             this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -1073,12 +1104,21 @@ namespace QuanLiNhaHang_nhom1
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 25);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Chế độ xem";
+            // 
             // frmBanAn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(2219, 1038);
+            this.ClientSize = new System.Drawing.Size(1539, 913);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmBanAn";
@@ -1172,5 +1212,6 @@ namespace QuanLiNhaHang_nhom1
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox31;
+        private System.Windows.Forms.Label label2;
     }
 }
