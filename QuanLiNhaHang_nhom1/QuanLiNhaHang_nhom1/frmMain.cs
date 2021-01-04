@@ -82,6 +82,12 @@ namespace QuanLiNhaHang_nhom1
 
         private void button3_Click(object sender, EventArgs e)
         {
+            DatBan datBan = new DatBan();
+            datBan.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             
         }
     }

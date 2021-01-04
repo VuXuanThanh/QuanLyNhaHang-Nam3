@@ -228,17 +228,18 @@ namespace QuanLiNhaHang_nhom1
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(224, 256);
-            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(336, 487);
             this.button1.TabIndex = 4;
             this.button1.Text = "Order";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(572, 256);
-            this.button2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(394, 212);
             this.button2.TabIndex = 5;
@@ -249,7 +250,7 @@ namespace QuanLiNhaHang_nhom1
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(572, 479);
-            this.button3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button3.Margin = new System.Windows.Forms.Padding(6);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(394, 212);
             this.button3.TabIndex = 6;
@@ -260,7 +261,7 @@ namespace QuanLiNhaHang_nhom1
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(572, 702);
-            this.button4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button4.Margin = new System.Windows.Forms.Padding(6);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(394, 212);
             this.button4.TabIndex = 7;
@@ -270,7 +271,7 @@ namespace QuanLiNhaHang_nhom1
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(224, 754);
-            this.button5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button5.Margin = new System.Windows.Forms.Padding(6);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(336, 160);
             this.button5.TabIndex = 8;
@@ -292,7 +293,7 @@ namespace QuanLiNhaHang_nhom1
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "Phần mềm quản lí nhà hàng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

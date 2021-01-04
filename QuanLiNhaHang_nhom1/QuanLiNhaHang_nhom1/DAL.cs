@@ -45,5 +45,20 @@ namespace QuanLiNhaHang_nhom1
             con.Dispose();
             con.Close();
         }
+        public static string getValue(string sql)
+        {
+            string str = "";
+            SqlConnection con = DAL.connect();
+            con.Open();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                str += reader.GetValue(0).ToString();
+            }
+            reader.Close();
+            con.Close();
+            return str;
+        }
     }
 }

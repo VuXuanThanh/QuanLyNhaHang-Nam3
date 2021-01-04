@@ -84,13 +84,13 @@ namespace QuanLiNhaHang_nhom1
                     return;
                 }
                 gt = chkNam.Checked ? "Nam" : "Nữ";
-                BLL.insertNV(txtTenNV.Text, gt, dtpNgaySinh.Value.Date, txtDiaChi.Text, txtDienThoai.Text, float.Parse(txtLuongThang.Text), cbxChucVu.Text);
+                BLL.insertNV( txtTenNV.Text, gt, dtpNgaySinh.Value.Date, txtDiaChi.Text, txtDienThoai.Text, float.Parse(txtLuongThang.Text), cbxChucVu.Text);
                 hienThi();
                 resetValue();
             }
             catch (FormatException ex)
             {
-                MessageBox.Show("Lỗi nhập không đúng kiểu");
+                MessageBox.Show("Lỗi nhập không đúng kiểu "+ex.Message);
             }
         }
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
