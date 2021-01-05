@@ -47,8 +47,8 @@
             this.MaKH = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.ThoiGianTra = new System.Windows.Forms.DateTimePicker();
+            this.ThoiGianDat = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -63,6 +63,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -73,13 +74,12 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(1201, 1157);
-            this.splitContainer1.SplitterDistance = 139;
+            this.splitContainer1.Size = new System.Drawing.Size(949, 1579);
+            this.splitContainer1.SplitterDistance = 150;
             this.splitContainer1.TabIndex = 0;
             // 
             // label1
@@ -89,13 +89,13 @@
             this.label1.ForeColor = System.Drawing.Color.Sienna;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1201, 139);
+            this.label1.Size = new System.Drawing.Size(949, 150);
             this.label1.TabIndex = 0;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(590, 883);
+            this.button2.Location = new System.Drawing.Point(507, 881);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(240, 56);
@@ -105,7 +105,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(302, 883);
+            this.button1.Location = new System.Drawing.Point(219, 881);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(240, 56);
@@ -127,7 +127,7 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.MaKH);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(218, 16);
+            this.groupBox2.Location = new System.Drawing.Point(135, 14);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -138,6 +138,7 @@
             // 
             // NgayGiaNhap
             // 
+            this.NgayGiaNhap.Enabled = false;
             this.NgayGiaNhap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.NgayGiaNhap.Location = new System.Drawing.Point(252, 529);
             this.NgayGiaNhap.Margin = new System.Windows.Forms.Padding(6);
@@ -266,11 +267,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.ThoiGianTra);
+            this.groupBox1.Controls.Add(this.ThoiGianDat);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(218, 633);
+            this.groupBox1.Location = new System.Drawing.Point(135, 631);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -279,23 +280,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đặt bàn";
             // 
-            // dateTimePicker2
+            // ThoiGianTra
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(252, 177);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(360, 31);
-            this.dateTimePicker2.TabIndex = 10;
+            this.ThoiGianTra.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.ThoiGianTra.Location = new System.Drawing.Point(252, 177);
+            this.ThoiGianTra.Margin = new System.Windows.Forms.Padding(4);
+            this.ThoiGianTra.Name = "ThoiGianTra";
+            this.ThoiGianTra.Size = new System.Drawing.Size(360, 31);
+            this.ThoiGianTra.TabIndex = 10;
             // 
-            // dateTimePicker1
+            // ThoiGianDat
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(252, 98);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(360, 31);
-            this.dateTimePicker1.TabIndex = 9;
+            this.ThoiGianDat.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.ThoiGianDat.Location = new System.Drawing.Point(252, 98);
+            this.ThoiGianDat.Margin = new System.Windows.Forms.Padding(4);
+            this.ThoiGianDat.Name = "ThoiGianDat";
+            this.ThoiGianDat.Size = new System.Drawing.Size(360, 31);
+            this.ThoiGianDat.TabIndex = 9;
             // 
             // label4
             // 
@@ -319,9 +320,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 1157);
+            this.AutoScroll = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(949, 1579);
             this.Controls.Add(this.splitContainer1);
+            this.MinimizeBox = false;
             this.Name = "ChiTietDatBan_nhieuBan_cs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChiTietDatBan_nhieuBan_cs";
             this.Load += new System.EventHandler(this.ChiTietDatBan_nhieuBan_cs_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -358,8 +363,8 @@
         private System.Windows.Forms.TextBox MaKH;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker ThoiGianTra;
+        private System.Windows.Forms.DateTimePicker ThoiGianDat;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
     }

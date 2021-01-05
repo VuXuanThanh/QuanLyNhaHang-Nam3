@@ -18,23 +18,7 @@ namespace QuanLiNhaHang_nhom1
         public static BLL bll = new BLL();
         public static String maban { get; set; }
 
-        public String getLastIndexCustomer( String MaKHLastIndexof)
-        {
-            DataTable customers = BLL.showKH();
-            int index = customers.Rows.Count;
-
-            if (index > 0)
-            {
-                DataRow row = customers.Rows[index - 1];
-
-                MaKHLastIndexof = (int.Parse(row["BaseID"].ToString()) + 1).ToString();
-                return "KH" + MaKHLastIndexof;
-            }
-            else
-            {
-                return "KH1";
-            }
-        }
+        
         public ChiTietDatBan(String MaBan,DataTable ListCustomer)
         {
             InitializeComponent();
@@ -44,19 +28,7 @@ namespace QuanLiNhaHang_nhom1
             label1.Text ="Bàn số "+ MaBan;
             label1.ForeColor=Color.DarkBlue;
            
-            //getLastIndexCustomer( lastIndexOf_ListCustomers);
-
-            //int index = ListCustomer.Rows.Count;
-            //DataRow row = ListCustomer.Rows[index - 1];
-            //MaKH.Text = (int.Parse(row["BaseID"].ToString()) + 1).ToString();
-
             
-            //foreach(DataRow row in ListCustomer.Rows)
-            //{
-            //    //dataGridView1.Items.Add(row[0].ToString()+"--"+ row[2].ToString() + "--" + row[3].ToString());
-            //    dataGridView1.
-            //    dataGridView1.Rows.Add(row[0],row[2],row[3]);
-            //}
             
         }
 
@@ -75,7 +47,6 @@ namespace QuanLiNhaHang_nhom1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // bll.insert_Dining_table(maban, dateTimePicker1.Value, dateTimePicker2.Value, MaKH.Text, TenKH.Text, DiaChi.Text, SDT.Text, SoDiemTichLuy.Text, NgayGiaNhap.Text);
             //todo
             if (radioButton1.Checked)
             {
@@ -131,7 +102,7 @@ namespace QuanLiNhaHang_nhom1
             if (rx.IsMatch(SDT.Text))
             {
 
-                DataTable dt = bll.getCustomerExixs(SDT.Text);
+                DataTable dt = BLL.getCustomerExixs(SDT.Text);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
@@ -146,7 +117,7 @@ namespace QuanLiNhaHang_nhom1
                     String et = "";
 
 
-                    MaKH.Text = getLastIndexCustomer(et);
+                    MaKH.Text = frmBanAn.getLastIndexCustomer(et);
                     TenKH.Text = "";
                     DiaChi.Text = "";
                     //SoDiemTichLuy.Text = row["SoDiemTichLuy"].ToString();
@@ -160,7 +131,7 @@ namespace QuanLiNhaHang_nhom1
                 String et = "";
 
 
-                MaKH.Text = getLastIndexCustomer(et);
+                MaKH.Text = frmBanAn.getLastIndexCustomer(et);
                 
                 TenKH.Text = "";
                 DiaChi.Text = "";
@@ -177,14 +148,14 @@ namespace QuanLiNhaHang_nhom1
         private void ChiTietDatBan_Load(object sender, EventArgs e)
         {
 
-            //dateTimePicker1.Value = frmBanAn.ThoiGianHen;
+            dateTimePicker1.Value = frmBanAn.ThoiGianHen;
             
             String et="";
             
 
 
 
-            MaKH.Text = getLastIndexCustomer(et) ;
+            MaKH.Text = frmBanAn.getLastIndexCustomer(et) ;
             NgayGiaNhap.Value = DateTime.Today;
             NgayGiaNhap.Enabled = false;
             dateTimePicker2.Value = dateTimePicker1.Value.AddHours(1);

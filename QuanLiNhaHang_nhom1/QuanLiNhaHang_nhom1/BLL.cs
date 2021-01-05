@@ -97,6 +97,14 @@ namespace QuanLiNhaHang_nhom1
             tblKH = DAL.getTable(sql);
             return tblKH;
         }
+
+        //get số đt khach hang
+        public static DataTable SDTKH()
+        {
+            String sql = "select DienThoai from KHACHHANG";
+            DataTable dt=DAL.getTable(sql);
+            return dt;
+        }
         /*string makh, string tenkh, string diachi, string dienthoai, string sodiemTL*/
 
 
@@ -165,7 +173,7 @@ namespace QuanLiNhaHang_nhom1
 
 
         //tìm kiếm khách hàng đã từng sử dụng dịch vụ của nhà hàng nhà hàng
-        public DataTable getCustomerExixs(String SDT)
+        public static DataTable getCustomerExixs(String SDT)
         {
             
                 String sql = "select * from KHACHHANG where DienThoai='" + SDT + "'";

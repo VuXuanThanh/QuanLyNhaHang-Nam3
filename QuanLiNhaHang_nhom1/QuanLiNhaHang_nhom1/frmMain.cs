@@ -82,7 +82,7 @@ namespace QuanLiNhaHang_nhom1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DatBan datBan = new DatBan();
+            HuyDatBan datBan = new HuyDatBan();
             datBan.ShowDialog();
         }
 

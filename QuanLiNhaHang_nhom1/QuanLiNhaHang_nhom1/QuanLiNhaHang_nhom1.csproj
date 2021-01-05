@@ -78,11 +78,11 @@
       <DependentUpon>ChiTietDatBan_nhieuBan.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL.cs" />
-    <Compile Include="DatBan.cs">
+    <Compile Include="HuyDatBan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DatBan.Designer.cs">
-      <DependentUpon>DatBan.cs</DependentUpon>
+    <Compile Include="HuyDatBan.Designer.cs">
+      <DependentUpon>HuyDatBan.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDMNhaCC.cs">
       <SubType>Form</SubType>
@@ -152,8 +152,8 @@
     <EmbeddedResource Include="ChiTietDatBan_nhieuBan.resx">
       <DependentUpon>ChiTietDatBan_nhieuBan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DatBan.resx">
-      <DependentUpon>DatBan.cs</DependentUpon>
+    <EmbeddedResource Include="HuyDatBan.resx">
+      <DependentUpon>HuyDatBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMNhaCC.resx">
       <DependentUpon>frmDMNhaCC.cs</DependentUpon>

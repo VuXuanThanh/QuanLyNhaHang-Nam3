@@ -21,8 +21,8 @@ namespace QuanLiNhaHang_nhom1
             InitializeComponent();
             AppencaCheckboxToButton();
             dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm  tt";
-            ThoiGianHen = dateTimePicker1.Value;
-            
+
+            dateTimePicker1.Value = DateTime.Today;
 
         }
 
@@ -48,8 +48,24 @@ namespace QuanLiNhaHang_nhom1
             ChiTietDatBan chiTietDatBan = new ChiTietDatBan(MaBan, listWithTable_ID);
             chiTietDatBan.ShowDialog();
         }
-        
-        
+        // hàm lấy ra mã khách hàng cuối cùng
+        public static String getLastIndexCustomer(String MaKHLastIndexof)
+        {
+            DataTable customers = BLL.showKH();
+            int index = customers.Rows.Count;
+
+            if (index > 0)
+            {
+                DataRow row = customers.Rows[index - 1];
+
+                MaKHLastIndexof = (int.Parse(row["BaseID"].ToString()) + 1).ToString();
+                return "KH" + MaKHLastIndexof;
+            }
+            else
+            {
+                return "KH1";
+            }
+        }
 
         private void comboBox2_KeyUp(object sender, KeyEventArgs e)
         {
@@ -159,6 +175,7 @@ namespace QuanLiNhaHang_nhom1
             else
             {
                 ChiTietDatBan_nhieuBan_cs chiTietDatBan_NhieuBan_Cs = new ChiTietDatBan_nhieuBan_cs(checkBoxes);
+                chiTietDatBan_NhieuBan_Cs.Size = new Size(500, Screen.GetWorkingArea(this).Height);
                 chiTietDatBan_NhieuBan_Cs.ShowDialog();
             }
             
@@ -173,7 +190,8 @@ namespace QuanLiNhaHang_nhom1
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             comboBox2_SelectedValueChanged(sender, e);
-            
+            ThoiGianHen = dateTimePicker1.Value;
+
         }
 
         private void toggleSwitch1_Toggled(object sender, EventArgs e)
@@ -384,7 +402,13 @@ namespace QuanLiNhaHang_nhom1
             getDetailDiningTable("2", listCustomer);
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataTable listCustomer = bll.getCustomerDininedTable("1");
+            getDetailDiningTable("1", listCustomer);
+        }
+
+
 
 
 
