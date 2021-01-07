@@ -40,32 +40,20 @@ namespace QuanLiNhaHang_nhom1
         }
         private void btnNhap_Click(object sender, EventArgs e)
         {
+            txtTenNCC.Focus();
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             btnBoQua.Enabled = true;
             btnThem.Enabled = true;
-            btnNhap.Enabled = false;
+            btnNhap.Enabled = true;
             ResetValue();
-            txtMaNCC.Enabled = true;
-            txtMaNCC.Focus();
+           
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtMaNCC.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập mã nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaNCC.Focus();
-                return;
-            }
             if (txtTenNCC.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải nhập tên nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaNCC.Focus();
-                return;
-            }
-            if (BLL.testNCC(txtMaNCC.Text.Trim()))
-            {
-                MessageBox.Show("Mã nhà cung cấp này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMaNCC.Focus();
                 return;
             }
@@ -73,7 +61,7 @@ namespace QuanLiNhaHang_nhom1
             {
                 MessageBox.Show("vui lòng nhập đầy đủ các trường còn lại");
             }
-            BLL.insertNCC( txtTenNCC.Text, txtDiaChi.Text, txtDienThoai.Text);
+            BLL.insertNCC(txtTenNCC.Text, txtDiaChi.Text, txtDienThoai.Text);
             frmDMNhaCC_Load(sender, e);
             ResetValue();
             btnXoa.Enabled = true;
@@ -82,6 +70,7 @@ namespace QuanLiNhaHang_nhom1
             btnBoQua.Enabled = false;
             btnNhap.Enabled = true;
             txtMaNCC.Enabled = false;
+           
         }
         private void btnSua_Click(object sender, EventArgs e)
         {

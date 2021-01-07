@@ -22,6 +22,12 @@ namespace QuanLiNhaHang_nhom1
             DataTable table = new DataTable();
             table = BLL.showNV();
             dgvNhanVien.DataSource = table;
+            foreach (DataGridViewRow row in dgvNhanVien.Rows)
+                if (row.Index % 2 == 0)
+                    row.DefaultCellStyle.BackColor = Color.Beige;
+                else
+                    row.DefaultCellStyle.BackColor = Color.White;
+            txtMaNV.Enabled = false;
         }
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
@@ -29,13 +35,13 @@ namespace QuanLiNhaHang_nhom1
         }
         private void resetValue()
         {
-            txtMaNV.Enabled = true;
+            txtMaNV.Enabled = false;
             txtMaNV.Text = "";
             txtTenNV.Clear();
             txtDienThoai.Clear();
             txtDiaChi.Clear();
             txtLuongThang.Clear();
-            txtMaNV.Focus();
+            txtTenNV.Focus();
         }
         private void btnNhap_Click(object sender, EventArgs e)
         {
@@ -46,12 +52,6 @@ namespace QuanLiNhaHang_nhom1
             try
             {
                 string gt;
-                if (txtMaNV.Text.Trim().Length == 0)
-                {
-                    MessageBox.Show("Bạn phải nhập mã nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtMaNV.Focus();
-                    return;
-                }
                 if (txtTenNV.Text.Trim().Length == 0)
                 {
                     MessageBox.Show("Bạn phải nhập tên nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -76,15 +76,8 @@ namespace QuanLiNhaHang_nhom1
                     txtLuongThang.Focus();
                     return;
                 }
-                if (BLL.testNV(txtMaNV.Text))
-                {
-                    MessageBox.Show("Mã nhân viên này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtMaNV.Focus();
-                    txtMaNV.Text = "";
-                    return;
-                }
                 gt = chkNam.Checked ? "Nam" : "Nữ";
-                BLL.insertNV( txtTenNV.Text, gt, dtpNgaySinh.Value.Date, txtDiaChi.Text, txtDienThoai.Text, float.Parse(txtLuongThang.Text), cbxChucVu.Text);
+                BLL.insertNV(txtTenNV.Text, gt, dtpNgaySinh.Value.Date, txtDiaChi.Text, txtDienThoai.Text, float.Parse(txtLuongThang.Text), cbxChucVu.Text);
                 hienThi();
                 resetValue();
             }
@@ -95,17 +88,24 @@ namespace QuanLiNhaHang_nhom1
         }
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int d = e.RowIndex;
-            txtMaNV.Text = dgvNhanVien.Rows[d].Cells[0].Value.ToString();
-            txtTenNV.Text = dgvNhanVien.Rows[d].Cells[1].Value.ToString();
-            if (dgvNhanVien.Rows[d].Cells[2].Value.ToString().Contains("Nam"))
-                chkNam.Checked = true;
-            else chkNam.Checked = false;
-            dtpNgaySinh.Value = Convert.ToDateTime(dgvNhanVien.Rows[d].Cells[3].Value);
-            txtDiaChi.Text = dgvNhanVien.Rows[d].Cells[4].Value.ToString();
-            txtDienThoai.Text = dgvNhanVien.Rows[d].Cells[5].Value.ToString();
-            txtLuongThang.Text = dgvNhanVien.Rows[d].Cells[6].Value.ToString();
-            cbxChucVu.Text = dgvNhanVien.Rows[d].Cells[7].Value.ToString();
+            try
+            {
+                int d = e.RowIndex;
+                txtMaNV.Text = dgvNhanVien.Rows[d].Cells[0].Value.ToString();
+                txtTenNV.Text = dgvNhanVien.Rows[d].Cells[1].Value.ToString();
+                if (dgvNhanVien.Rows[d].Cells[2].Value.ToString().Contains("Nam"))
+                    chkNam.Checked = true;
+                else chkNam.Checked = false;
+                dtpNgaySinh.Value = Convert.ToDateTime(dgvNhanVien.Rows[d].Cells[3].Value);
+                txtDiaChi.Text = dgvNhanVien.Rows[d].Cells[4].Value.ToString();
+                txtDienThoai.Text = dgvNhanVien.Rows[d].Cells[5].Value.ToString();
+                txtLuongThang.Text = dgvNhanVien.Rows[d].Cells[6].Value.ToString();
+                cbxChucVu.Text = dgvNhanVien.Rows[d].Cells[7].Value.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void btnSua_Click(object sender, EventArgs e)
         {

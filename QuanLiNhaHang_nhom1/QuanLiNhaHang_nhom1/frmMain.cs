@@ -3,41 +3,26 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Timers;
 
 namespace QuanLiNhaHang_nhom1
 {
+    // 7.10pm
     public partial class frmMain : Form
     {
-        private static System.Timers.Timer timer;
-        
-
         public frmMain()
         {
             InitializeComponent();
-            
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
-            
-                 
-                
-                
-                
-            
+          
         }
-    
-        private  void OntimeEvent(Object source,System.Timers.ElapsedEventArgs e)
-        {
-           
-        }
+
         private void mnuThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -61,41 +46,53 @@ namespace QuanLiNhaHang_nhom1
             frmKH.ShowDialog();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+     
+        private void mnuNguyenLieu_Click(object sender, EventArgs e)
         {
-
+            frmDMNguyenLieu frmNguyenLieu = new frmDMNguyenLieu();
+            frmNguyenLieu.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void mnuOrder_Click(object sender, EventArgs e)
         {
-            
-            
-            frmBanAn datban = new frmBanAn();
-            datban.ShowDialog();
-            //hiển thị đặt bàn
+            frmGoiMonMain frmGM = new frmGoiMonMain();
+            frmGM.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void mnuDanhMuc_Click(object sender, EventArgs e)
         {
-
-            HuyDatBan datBan = new HuyDatBan();
-            datBan.Size = new Size(500, Screen.GetWorkingArea(this).Height);
-            datBan.ShowDialog();
+            frmDanhMuc frmDM = new frmDanhMuc();
+            frmDM.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void mnuThanhToanHoaDon_Click(object sender, EventArgs e)
         {
-            
+            frmThanhToanHoaDon frmTTHD = new frmThanhToanHoaDon();
+            frmTTHD.ShowDialog();
         }
 
-        private void thêmBànToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuThongKe_Click(object sender, EventArgs e)
         {
-            ThemBan themBan = new ThemBan();
-            themBan.ShowDialog();
+            //frmBaoCaoThongKe frmBCTK = new frmBaoCaoThongKe();
+            //frmBCTK.ShowDialog();
         }
 
-        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmQuanLiHoaDon frmQLHD = new frmQuanLiHoaDon();
+            frmQLHD.ShowDialog();
+        }
+
+        private void ThongKeHoaDonmnu_Click(object sender, EventArgs e)
+        {
+            frmThongKeHoaDon frmTKHD = new frmThongKeHoaDon();
+            frmTKHD.ShowDialog();
+        }
+
+        private void mnuTimKiem_Click(object sender, EventArgs e)
+        {
+            TimKiem TK = new TimKiem();
+            TK.ShowDialog();
         }
     }
 }

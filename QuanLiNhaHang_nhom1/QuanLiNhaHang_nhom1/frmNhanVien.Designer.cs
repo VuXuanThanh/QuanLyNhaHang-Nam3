@@ -118,7 +118,7 @@ namespace QuanLiNhaHang_nhom1
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(480, 15);
+            this.btnXoa.Location = new System.Drawing.Point(477, 15);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(104, 43);
             this.btnXoa.TabIndex = 4;
@@ -128,7 +128,7 @@ namespace QuanLiNhaHang_nhom1
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(339, 16);
+            this.btnSua.Location = new System.Drawing.Point(331, 15);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(104, 43);
             this.btnSua.TabIndex = 5;
@@ -138,7 +138,7 @@ namespace QuanLiNhaHang_nhom1
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(196, 17);
+            this.btnThem.Location = new System.Drawing.Point(188, 17);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(104, 43);
             this.btnThem.TabIndex = 6;

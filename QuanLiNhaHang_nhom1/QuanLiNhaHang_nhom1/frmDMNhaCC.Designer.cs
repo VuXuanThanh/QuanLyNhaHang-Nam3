@@ -30,6 +30,7 @@ namespace QuanLiNhaHang_nhom1
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTim = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
             this.btnBoQua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@ namespace QuanLiNhaHang_nhom1
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvNhaCC = new System.Windows.Forms.DataGridView();
-            this.btnTim = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,8 +69,18 @@ namespace QuanLiNhaHang_nhom1
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 450);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1036, 68);
+            this.panel1.Size = new System.Drawing.Size(1008, 68);
             this.panel1.TabIndex = 1;
+            // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(618, 14);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(108, 42);
+            this.btnTim.TabIndex = 2;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // btnDong
             // 
@@ -146,7 +156,7 @@ namespace QuanLiNhaHang_nhom1
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1036, 168);
+            this.panel2.Size = new System.Drawing.Size(1008, 168);
             this.panel2.TabIndex = 0;
             // 
             // txtDienThoai
@@ -161,7 +171,7 @@ namespace QuanLiNhaHang_nhom1
             this.txtTenNCC.Location = new System.Drawing.Point(164, 114);
             this.txtTenNCC.Name = "txtTenNCC";
             this.txtTenNCC.Size = new System.Drawing.Size(317, 22);
-            this.txtTenNCC.TabIndex = 1;
+            this.txtTenNCC.TabIndex = 0;
             // 
             // txtDiaChi
             // 
@@ -183,8 +193,9 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.txtMaNCC.Location = new System.Drawing.Point(164, 68);
             this.txtMaNCC.Name = "txtMaNCC";
+            this.txtMaNCC.ReadOnly = true;
             this.txtMaNCC.Size = new System.Drawing.Size(317, 22);
-            this.txtMaNCC.TabIndex = 0;
+            this.txtMaNCC.TabIndex = 1;
             // 
             // label4
             // 
@@ -236,19 +247,9 @@ namespace QuanLiNhaHang_nhom1
             this.dgvNhaCC.Name = "dgvNhaCC";
             this.dgvNhaCC.RowHeadersWidth = 51;
             this.dgvNhaCC.RowTemplate.Height = 24;
-            this.dgvNhaCC.Size = new System.Drawing.Size(1036, 282);
+            this.dgvNhaCC.Size = new System.Drawing.Size(1008, 282);
             this.dgvNhaCC.TabIndex = 0;
             this.dgvNhaCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhaCC_CellClick);
-            // 
-            // btnTim
-            // 
-            this.btnTim.Location = new System.Drawing.Point(618, 14);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(108, 42);
-            this.btnTim.TabIndex = 2;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = true;
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // Column1
             // 
@@ -286,7 +287,7 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 518);
+            this.ClientSize = new System.Drawing.Size(1008, 518);
             this.Controls.Add(this.dgvNhaCC);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

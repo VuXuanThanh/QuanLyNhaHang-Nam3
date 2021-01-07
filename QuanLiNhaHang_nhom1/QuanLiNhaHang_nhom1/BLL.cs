@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace QuanLiNhaHang_nhom1
 {
@@ -9,12 +9,11 @@ namespace QuanLiNhaHang_nhom1
         //NHACC
         public static DataTable showNCC()
         {
-           string sql = "select * from NHACUNGCAP";
+           string sql = "select MaNCC, TenNCC, DiaChi, DienThoai from NHACUNGCAP";
             DataTable tblNCC = new DataTable();
             tblNCC = DAL.getTable(sql);
             return tblNCC;
         }
-
         public static bool testNCC(string maNCC)
         {
             string sql = "select MaNCC from NHACUNGCAP where MaNCC='" + maNCC + "'";
@@ -23,10 +22,9 @@ namespace QuanLiNhaHang_nhom1
                 return true;
             else return false;
         }
-        //xóa thuộc tính mã nhà cung cấp (mã nhà cung cấp tự tăng)
-        public static void insertNCC( string tenNCC, string diaChi, string dienThoai)
+        public static void insertNCC(string tenNCC, string diaChi, string dienThoai)
         {
-            string sql ="insert into NHACUNGCAP(TenNCC,DiaChi,DienThoai) values("+ "'N'" + tenNCC + "',N'" + diaChi + "','" + dienThoai + "')";
+            string sql ="insert into NHACUNGCAP values(N'" + tenNCC + "',N'" + diaChi + "','" + dienThoai + "')";
             DAL.executeNonQuery(sql);
         }
 
@@ -48,33 +46,44 @@ namespace QuanLiNhaHang_nhom1
             tblNCC = DAL.getTable(sql);
             return tblNCC;
         }
+        public static DataTable fillComboNCC()
+        {
+            DataTable table = new DataTable();
+            string sql = "select MaNCC,TenNCC from NHACUNGCAP";
+            table = DAL.getTable(sql);
+            return table;
+        }
+        public static string showTenTheoMaNCC(string maNCC)
+        {
+            string sql = "select TenNCC from NHACUNGCAP where MaNCC ='" + maNCC + "'";
+            string str = DAL.getValue(sql);
+            return str;
+        }
         // NHANVIEN
         public static DataTable showNV()
         {
-            string sql = "select * from NHANVIEN";
+            string sql = "select MaNV, TenNV, GioiTinh, NgaySinh, DiaChi, DienThoai,LuongThang, ChucVu from NHANVIEN";
             DataTable tblNV = new DataTable();
             tblNV = DAL.getTable(sql);
             return tblNV;
         }
-        //xóa thuộc tính Mã nhân viên(mã nhân viên tăng tự động)
-        public static void insertNV( string TenNV, string GioiTinh, DateTime ngaySinh, string DiaChi, String DienThoai, float luongThang, string chucVu)
+        public static void insertNV(string TenNV, string GioiTinh,DateTime ngaySinh, string DiaChi,String DienThoai, float luongThang, string chucVu)
         {
-           
-            string sql = "insert into NHANVIEN(TenNV,GioiTinh,NgaySinh,DiaChi,DienThoai,LuongThang,ChucVu) values (" + "'N'" + TenNV + "',N'" + GioiTinh + "','" + ngaySinh + "',N'" + DiaChi + "','" + DienThoai + "','" + luongThang + "',N'" + chucVu + "')";
+            string sql = "insert into NHANVIEN values (N'" + TenNV + "',N'" + GioiTinh + "',N'" + ngaySinh + "','" + DiaChi + "','" + DienThoai + "','" + luongThang + "',N'" + chucVu + "','employee')";
             DAL.executeNonQuery(sql);
         }
-        public static bool testNV(string maNV)
+       /* public static bool testNV(string maNV)
         {
             string sql = "select MaNV from NHANVIEN where MaNV='" + maNV + "'";
             DataTable table = DAL.getTable(sql);
             if (table.Rows.Count > 0)
                 return true;
             else return false;
-        }
+        }*/
         public static void updateNV(string MaNV, string TenNV, string GioiTinh, DateTime ngaySinh, string DiaChi, String DienThoai, float luongThang, string chucVu)
         {
             string sql = "update NHANVIEN set TenNV=N'" + TenNV + "', GioiTinh=N'" + GioiTinh + "', DiaChi=N'" + DiaChi + "'" +
-                ", DienThoai='" + DienThoai + "', LuongThang='" + luongThang + "', ChucVu=N'" + chucVu + "' where MaNV='"+MaNV+"'";
+                ", DienThoai='" + DienThoai + "',NgaySinh ='"+ngaySinh+"', LuongThang='" + luongThang + "', ChucVu=N'" + chucVu + "' where MaNV='"+MaNV+"'";
             DAL.executeNonQuery(sql);
         }
         public static void deleteNV(string MaNV)
@@ -84,7 +93,7 @@ namespace QuanLiNhaHang_nhom1
         }
         public static DataTable show1NV(string MaNV)
         {
-            string sql = "select * from NHANVIEN where MaNV ='" + MaNV + "'";
+            string sql = "select MaNV, TenNV, GioiTinh, NgaySinh, DiaChi, DienThoai,LuongThang, ChucVu from NHANVIEN where MaNV ='" + MaNV + "'";
             DataTable tblNCC = new DataTable();
             tblNCC = DAL.getTable(sql);
             return tblNCC;
@@ -97,126 +106,8 @@ namespace QuanLiNhaHang_nhom1
             tblKH = DAL.getTable(sql);
             return tblKH;
         }
-
-
-
-
-        /// <summary>
-        /// đây là của hiển
-        /// </summary>
-        /// <returns></returns>
-
-        //get số đt khach hang
-        public static DataTable SDTKH()
-        {
-            String sql = "select DienThoai from KHACHHANG";
-            DataTable dt=DAL.getTable(sql);
-            return dt;
-        }
-        /*string makh, string tenkh, string diachi, string dienthoai, string sodiemTL*/
-
-
-        //function select table by time
-
-        public DataTable getListTable(DateTime ThoiGianDatBan)
-        {
-            String sql = "select MaBan from DATBAN where Datediff(hour,ThoiGianTra,'" + ThoiGianDatBan+"')<0";
-           
-            DataTable dt = new DataTable();
-            SqlConnection con = DAL.connect();
-            con.Open();
-            
-            SqlCommand com = new SqlCommand(sql, con);
-            SqlDataReader dr = com.ExecuteReader();
-            dt.Load(dr);
-            return dt;
-        }
-        public DataTable getCustomerDininedTable(String MaBan)
-        {
-            DataTable dt = new DataTable();
-            String sql = "select * from DATBAN where MaBan='BAN"+MaBan+"'";
-            dt=DAL.getTable(sql);
-
-
-            return dt;
-        }
-       
-        //Thêm khách hàng mới và không muốn Lưu thông tin cá nhân(k làm thẻ tích điểm)
-        public void insertCustomers(String TenKH,String DiaChi,String SDT,DateTime NgayGiaNhap)
-        {
-            
-            String sql = "insert into KHACHHANG(TenKH,DiaChi,DienThoai,NgayGiaNhap) values(N'" + TenKH + "',N'" + DiaChi + "','" + SDT + "', CAST(GETDATE() as Date) )";
-            DAL.executeNonQuery(sql);
-        }
-
-        //Thêm khách hàng mới và muốn làm thẻ tích lũy điểm
-        public void insertCustomers(String TenKH, String DiaChi, String SDT,int SoDiemTichLuy, DateTime NgayGiaNhap)
-            //khởi tạo khách hàng với điểm tích lũy bằng 0
-        {
-            String sql= "insert into KHACHHANG(TenKH,DiaChi,DienThoai,SoDiemTichLuy,NgayGiaNhap) values(N'" + TenKH + "',N'" + DiaChi + "','" + SDT + "',"+SoDiemTichLuy+",  CAST(GETDATE() as Date)  )";
-            DAL.executeNonQuery(sql);
-        }
-        public void insertDATBAN(String MaKH,String MaBan,DateTime ThoiGianDat,DateTime ThoiGianTra,int landat)
-        {
-            String sql = "insert into DATBAN values('" + MaKH + "','" + MaBan + "',"+landat+",'" + ThoiGianDat + "','" + ThoiGianTra + "')";
-            DAL.executeNonQuery(sql);
-        }
-
-        public String getLatDatBan(String MaBan,String MaKH)
-        {
-            String sql = "select count(*) from DATBAN where MaKH='" + MaKH + "' and MaBan='" + MaBan + "'";
-            String result=DAL.getValue(sql);
-            return result;
-        }
-
-
-        //tìm kiếm khách hàng đã từng sử dụng dịch vụ của nhà hàng nhà hàng
-        public static DataTable getCustomerExixs(String SDT)
-        {
-            
-                String sql = "select * from KHACHHANG where DienThoai='" + SDT + "'";
-                DataTable dt = DAL.getTable(sql);
-                return dt;
-           
-            
-        }
-        public static DataTable getDiningTableExixs(String SDT)
-        {
-            String sql = "select * from KHACHHANG inner join DATBAN on KHACHHANG.MaKH=DATBAN.MaKH where DienThoai='"+SDT+"'";
-            DataTable dt = DAL.getTable(sql);
-            return dt;
-        }
-        public void DeleteDatBan(String MaKH)
-        {
-            String sql = "delete DATBAN where MaKH='" + MaKH + "'";
-            DAL.executeNonQuery(sql);
-        }
-
-        public DataTable getDanhSachBan()
-        {
-            String sql = "select * from DANHSACHBAN";
-            DataTable dt = DAL.getTable(sql);
-            return dt;
-            
-        }
-
-         public void insertDanhSachDatBan(String TenBan)
-        {
-            String sql = "insert into DANHSACHBAN(TenBan) values (N'" + TenBan + "')";
-            DAL.executeNonQuery(sql);
-
-        }
-
-
-
-        /// <summary>
-        /// hết phần của hiển
-        /// </summary>
-        /// <returns></returns>
-
-        //Bll của thành
-
-        public static DataTable fillComboNV()//
+        // HOA DON
+       public static DataTable fillComboNV()//
         {
             string sql = "select MaNV, TenNV from NHANVIEN";
             DataTable table = new DataTable();
@@ -241,7 +132,7 @@ namespace QuanLiNhaHang_nhom1
         public static string showTenTheoMa(string ma)
         {
             string str;
-            string sql = "Select TenNV from NHANVIEN where MaNV =N'" + ma + "'";
+            string sql  = "Select TenNV from NHANVIEN where MaNV =N'" + ma + "'";
             str = DAL.getValue(sql);
             return str;
         }
@@ -299,7 +190,7 @@ namespace QuanLiNhaHang_nhom1
         {
             string formatDate = "yyyy-MM-dd";
             string str;
-            string sql = "Select format([NgayXuat],'" + formatDate + "') from HOADON where MaHD ='" + maHD + "'";
+            string sql = "Select format([NgayXuat],'"+formatDate+"') from HOADON where MaHD ='"+maHD+"'";
             str = DAL.getValue(sql);
             return str;
         }
@@ -313,14 +204,14 @@ namespace QuanLiNhaHang_nhom1
         public static string showMaNVTheoHoaDon(string ma)
         {
             string str;
-            string sql = "select MaNV from HOADON where MaHD ='" + ma + "'";
+            string sql = "select MaNV from HOADON where MaHD ='"+ma+"'";
             str = DAL.getValue(sql);
             return str;
         }
         // thêm hóa đơn
-        public static void insertHD(string MaHD, DateTime ngayXuat, string tinhTrang, string MaNV, string MaKH)
+        public static void insertHD(string MaHD, DateTime ngayXuat, string MaNV, string MaKH)
         {
-            string sql = "insert into HOADON values ('" + MaHD + "',N'" + ngayXuat + "',N'" + tinhTrang + "',N'" + MaNV + "','" + MaKH + "')";
+            string sql = "insert into HOADON values ('" + MaHD + "',N'" + ngayXuat + "',N'" + MaNV + "','" + MaKH + "')";
             DAL.executeNonQuery(sql);
         }
         // thêm chitiethoadon
@@ -339,20 +230,18 @@ namespace QuanLiNhaHang_nhom1
                 return true;
             else return false;
         }
-        /*   //Kiểm tra trùng mã món ăn khi thêm vào hóa đơn
-           public static bool testMonAnTrongHoaDon(string maMon, string maHD)
-           {
-               string sql = "select MaMon from CHITIETHOADON where MaMon='" + maMon + "' and MaHD='"+maHD+"'";
-               DataTable table = DAL.getTable(sql);
-               if (table.Rows.Count > 0)
-                   return true;
-               else return false;
-           }*/
-        /*  public static void deleteHoaDon(string maHD)// xóa 1 row trong HOADON
-          {
-              string sql = "delete from HOADON where MaHD='"+maHD+"'";
-              DAL.executeNonQuery(sql);
-          }*/
+        public static DataTable showHoaDon()
+        {
+            string sql = "select * from HOADON";
+            DataTable table = new DataTable();
+            table = DAL.getTable(sql);
+            return table;
+        }
+        public static void deleteHoaDon(string maHD)
+        {
+            string sql = "delete from HOADON where MaHD='" + maHD + "'";
+            DAL.executeNonQuery(sql);
+        }
         public static void deleteChiTietHoaDon(string maHD)
         {
             string sql = "delete from CHITIETHOADON where MaHD='" + maHD + "'";
@@ -369,13 +258,12 @@ namespace QuanLiNhaHang_nhom1
             return table;
         }
         // lấy thông tin món ăn để xuất ra file exel
-        public static DataTable showMonAnDeXuatRaFileExel(string ma, DateTime ngayXuat)
+        public static DataTable showMonAnDeXuatRaFileExel(string ma)
         {
             DataTable table = new DataTable();
-            //  string sql = "select TenMon, SoLuong, [MONAN].DonGia, GiamGia, (SoLuong*[MONAN].DonGia-SoLuong*[MONAN].DonGia*GiamGia/100) as ThanhTien from CHITIETHOADON inner join MONAN on CHITIETHOADON.MaMon = MONAN.MaMon where CHITIETHOADON.MaHD='" + ma + "'";
-            string sql = "select CHITIETGOIMON.MaMon, TenMon,sum(SoLuong) as SoLuong,MONAN.DonGia,sum(CHITIETGOIMON.GiamGia) as TongGiamGia,sum(SoLuong*MONAN.DonGia-SoLuong*MONAN.DonGia*GiamGia/100) as ThanhTien  " +
-               "from CHITIETGOIMON inner join MONAN on CHITIETGOIMON.MaMon=MONAN.MaMon " +
-               "inner join GOIMON on GOIMON.IDGoiMon = CHITIETGOIMON.IDGoiMon where MaKH='" + ma + "' and ThoiGian='" + ngayXuat + "' group by CHITIETGOIMON.MaMon, TenMon,MONAN.DonGia";
+            string sql = "select CHITIETHOADON.MaMon, TenMon, SoLuong, CHITIETHOADON.DonGia, GiamGia, ThanhTien  " +
+               "from CHITIETHOADON inner join MONAN on CHITIETHOADON.MaMon = MONAN.MaMon where MaHD='"+ma+"'";
+              
             table = DAL.getTable(sql);
             return table;
         }
@@ -386,22 +274,22 @@ namespace QuanLiNhaHang_nhom1
             return str;
         }
         // tìm hóa đơn
-        /*        public static DataTable showThongTinHoaDonTimKiem(string chuoiTim, bool flag)
-                {
-                    DataTable table = new DataTable();
-                    string sql = "select HOADON.MaHD, NgayXuat, MaNV, MaKH, sum((DonGia*SoLuong)-(DonGia*SoLuong)*GiamGia/100) as TongTien from HOADON " +
-                        "inner join CHITIETHOADON on CHITIETHOADON.MaHD=HOADON.MaHD where 1=1 ";
-                    if (flag)
-                        sql += "and HOADON.MaHD like '%" + chuoiTim + "%'";
-                    else
-                        sql += "and MaKH like '%" + chuoiTim + "%'";
+/*        public static DataTable showThongTinHoaDonTimKiem(string chuoiTim, bool flag)
+        {
+            DataTable table = new DataTable();
+            string sql = "select HOADON.MaHD, NgayXuat, MaNV, MaKH, sum((DonGia*SoLuong)-(DonGia*SoLuong)*GiamGia/100) as TongTien from HOADON " +
+                "inner join CHITIETHOADON on CHITIETHOADON.MaHD=HOADON.MaHD where 1=1 ";
+            if (flag)
+                sql += "and HOADON.MaHD like '%" + chuoiTim + "%'";
+            else
+                sql += "and MaKH like '%" + chuoiTim + "%'";
 
-                    sql += "group by HOADON.MaHD, NgayXuat, MaNV, MaKH";
-                    table = DAL.getTable(sql);
-                    return table;
-                } 
-        */
-        // NGUYENLIEU
+            sql += "group by HOADON.MaHD, NgayXuat, MaNV, MaKH";
+            table = DAL.getTable(sql);
+            return table;
+        } 
+*/
+        // NGUYENLIEU. NGUYENLIEU_NCC
         public static DataTable showNguyenLieu()
         {
             DataTable table = new DataTable();
@@ -409,9 +297,14 @@ namespace QuanLiNhaHang_nhom1
             table = DAL.getTable(sql);
             return table;
         }
-        public static void insertNguyenLieu(string maNL, string tenNL, DateTime ngayNhap, int hanSD, string dvTinh, int SLTon, string maNCC)
+        public static void insertNguyenLieu(string tenNL, DateTime ngayNhap, int hanSD, string dvTinh, int SLTon)
         {
-            string sql = "insert into NGUYENLIEU values('" + maNL + "',N'" + tenNL + "','" + ngayNhap + "','" + hanSD + "',N'" + dvTinh + "','" + SLTon + "','" + maNCC + "')";
+            string sql = "insert into NGUYENLIEU values(N'" + tenNL + "','" + ngayNhap + "','" + hanSD + "',N'" + dvTinh + "','" + SLTon + "')";
+            DAL.executeNonQuery(sql);
+        }
+        public static void insertNguyenLieu_NCC(string maNL, string maNCC)
+        {
+            string sql = "insert into NGUYENLIEU_NCC values('" + maNL + "','" + maNCC + "')";
             DAL.executeNonQuery(sql);
         }
         public static DataTable fillComboMaNCC()
@@ -421,44 +314,84 @@ namespace QuanLiNhaHang_nhom1
             table = DAL.getTable(sql);
             return table;
         }
-
+        public static string IDENT_CURRENT_NGUYENLIEU()
+        {
+            string tableName = "NGUYENLIEU";
+            string sql = "select IDENT_CURRENT('" + tableName + "')";
+            string str = DAL.getValue(sql);
+            return str;
+        }
+        public static string testTenNguyenLieu(string tenNL)
+        {
+            string sql = "select count(*) from NGUYENLIEU where TenNL=N'" + tenNL + "'";
+            string str = DAL.getValue(sql);
+            return str;
+        }
+        public static DataTable showNguyenLieu_NCC()
+        {
+            DataTable table = new DataTable();
+            string sql = "select NGUYENLIEU.MaNL, TenNL, NHACUNGCAP.MaNCC, TenNCC from NGUYENLIEU_NCC " +
+                "inner join NHACUNGCAP on NHACUNGCAP.MaNCC=NGUYENLIEU_NCC.MaNCC " +
+                "inner join NGUYENLIEU on NGUYENLIEU.MaNL=NGUYENLIEU_NCC.MaNL";
+            table = DAL.getTable(sql);
+            return table;
+        }
+        public static DataTable showDSNguyenLieu()
+        {
+            DataTable table = new DataTable();
+            string sql = "select * from NGUYENLIEU";
+            table = DAL.getTable(sql);
+            return table;
+        }
+        public static DataTable showDSNguyenLieuTheoNCC(string maNCC)
+        {
+            DataTable table = new DataTable();
+            string sql = "select NGUYENLIEU.MaNL,TenNL,NgayNhap,HanSuDung,DonViTinh,SoLuongTonKho " +
+                "from NGUYENLIEU inner join NGUYENLIEU_NCC " +
+                "on NGUYENLIEU.MaNL=NGUYENLIEU_NCC.MaNL where MaNCC='"+maNCC+"'";
+            table = DAL.getTable(sql);
+            return table;
+        }
+        public static void deleteNguyenLieuTheoNCC(string maNCC, string maNL)
+        {
+            string sql = "delete from NGUYENLIEU_NCC where MaNCC='" + maNCC + "' and MaNL='" + maNL + "'";
+            DAL.executeNonQuery(sql);
+        }
         // GOIMON, CHITIETGOIMON
         public static DataTable showChiTietGoiMon(string maKH)
         {
             DataTable table = new DataTable();
             string sql = "select GOIMON.IDGoiMon, CHITIETGOIMON.MaMon, TenMon, SoLuong, CHITIETGOIMON.DonGia, GiamGia, (SoLuong*CHITIETGOIMON.DonGia-SoLuong*CHITIETGOIMON.DonGia*GiamGia/100) as ThanhTien " +
                 "from CHITIETGOIMON inner join MONAN on CHITIETGOIMON.MaMon=MONAN.MaMon " +
-                "inner join GOIMON on GOIMON.IDGoiMon = CHITIETGOIMON.IDGoiMon where MaKH='" + maKH + "'";
+                "inner join GOIMON on GOIMON.IDGoiMon = CHITIETGOIMON.IDGoiMon where MaKH='"+maKH+"'";
             table = DAL.getTable(sql);
             return table;
         }
         public static DataTable showChiTietHoaDon(string maKH, DateTime ngayXuat)
         {
             DataTable table = new DataTable();
-            string sql = "select CHITIETGOIMON.MaMon, TenMon,sum(SoLuong) as SoLuong,MONAN.DonGia,sum(CHITIETGOIMON.GiamGia) as TongGiamGia,sum(SoLuong*MONAN.DonGia-SoLuong*MONAN.DonGia*GiamGia/100) as ThanhTien  " +
+            string sql = "select CHITIETGOIMON.MaMon, TenMon,sum(SoLuong) as SoLuong,MONAN.DonGia,sum((SoLuong*MONAN.DonGia*GiamGia/100)) as GiamGia,sum(SoLuong*MONAN.DonGia-SoLuong*MONAN.DonGia*GiamGia/100) as ThanhTien  " +
                 "from CHITIETGOIMON inner join MONAN on CHITIETGOIMON.MaMon=MONAN.MaMon " +
-                "inner join GOIMON on GOIMON.IDGoiMon = CHITIETGOIMON.IDGoiMon where MaKH='" + maKH + "' and ThoiGian ='" + ngayXuat + "' group by CHITIETGOIMON.MaMon, TenMon,MONAN.DonGia";
+                "inner join GOIMON on GOIMON.IDGoiMon = CHITIETGOIMON.IDGoiMon where MaKH='"+maKH+"' and ThoiGian ='"+ngayXuat+"' and TrangThai = 0 group by CHITIETGOIMON.MaMon, TenMon,MONAN.DonGia";
             table = DAL.getTable(sql);
             return table;
         }
-        public static string showTongTienTheoMaKH(string MaHD)
+        public static void updateGoiMon(string maKH)
         {
-            string str;
-            string sql = "select sum(ThanhTien) as TongTien from CHITIETHOADON inner join HOADON on HOADON.MaHD=CHITIETHOADON.MaHD where MaKH='" + MaHD + "'";
-            str = DAL.getValue(sql);
-            return str;
+            string sql = "update GOIMON set TrangThai = 1 where MaKH='" + maKH + "'";
+            DAL.executeNonQuery(sql);
         }
         // DANH MUC
         public static DataTable showDanhMuc()
         {
             DataTable table = new DataTable();
-            string sql = "select * from DANHMUC";
+            string sql = "select MaDanhMuc, TenDanhMuc from DANHMUC";
             table = DAL.getTable(sql);
             return table;
         }
-        public static void insertDanhMuc(string maDM, string tenDM)
+        public static void insertDanhMuc(string tenDM)
         {
-            string sql = "insert into DANHMUC values('" + maDM + "',N'" + tenDM + "')";
+            string sql = "insert into DANHMUC values(N'" + tenDM + "')";
             DAL.executeNonQuery(sql);
         }
         public static void deleteDanhMuc(string maDM)
@@ -468,7 +401,7 @@ namespace QuanLiNhaHang_nhom1
         }
         public static void updateDanhMuc(string maDM, string tenDM)
         {
-            string sql = "update DANHMUC set TenDanhMuc=N'" + tenDM + "' where MaDanhMuc='" + maDM + "'";
+            string sql = "update DANHMUC set TenDanhMuc=N'"+tenDM+"' where MaDanhMuc='" + maDM + "'";
             DAL.executeNonQuery(sql);
         }
 
@@ -503,25 +436,43 @@ namespace QuanLiNhaHang_nhom1
         }
         public static void insertGoiMon(string maKH, bool trangThai, DateTime thoiGian)
         {
-            string sql = "insert into GOIMON values('" + trangThai + "','" + maKH + "','" + thoiGian + "')";
+            string sql = "insert into GOIMON values('" + trangThai + "','" + maKH + "','"+thoiGian+"')";
             DAL.executeNonQuery(sql);
         }
         public static string IDENT_CURRENT()
         {
             string tableName = "GOIMON";
-            string sql = "select IDENT_CURRENT('" + tableName + "')";
+            string sql = "select IDENT_CURRENT('"+tableName+"')";
             string str = DAL.getValue(sql);
             return str;
         }
         public static void insertChiTietGoiMon(string IDGoiMon, string maMon, int soLuong, float giamGia)
         {
-            string sql = "set SET IDENTITY_INSERT CHITIETGOIMON on " +
-                "insert into CHITIETGOIMON values('" + IDGoiMon + "','" + maMon + "'," + soLuong + "," + giamGia + ")" +
-                " set SET IDENTITY_INSERT CHITIETGOIMON off;";
+            string sql = "insert into CHITIETGOIMON values('" + IDGoiMon + "','" + maMon + "','" + soLuong + "','" + giamGia + "')";
             DAL.executeNonQuery(sql);
         }
 
+        // đặt bàn cập nhật lại khi khách hàng thanh toán hóa đơn
+        public static void updateDatBanKhiThanhToanHoaDon(string maKH, DateTime thoiGianTra)
+        {
+            string sql = "update DATBAN set ThoiGianTra = '" + thoiGianTra + "' where MaKH='" + maKH + "'";
+            DAL.executeNonQuery(sql);
+        }
+
+
+        /// Ghép code của Hiển
+        public DataTable getDanhSachBan()
+        {
+            String sql = "select * from DANHSACHBAN";
+            DataTable dt = DAL.getTable(sql);
+            return dt;
+
+        }
+        public void insertDanhSachDatBan(String TenBan)
+        {
+            String sql = "insert into DANHSACHBAN(TenBan) values (N'" + TenBan + "')";
+            DAL.executeNonQuery(sql);
+
+        }
     }
 }
-
-
