@@ -53,7 +53,7 @@ namespace QuanLiNhaHang_nhom1
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(272, 186);
+            this.btnTim.Location = new System.Drawing.Point(317, 188);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(154, 52);
             this.btnTim.TabIndex = 2;

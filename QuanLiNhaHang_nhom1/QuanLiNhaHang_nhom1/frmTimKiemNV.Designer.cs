@@ -76,7 +76,7 @@ namespace QuanLiNhaHang_nhom1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 245);
+            this.ClientSize = new System.Drawing.Size(818, 253);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtMaNVTim);

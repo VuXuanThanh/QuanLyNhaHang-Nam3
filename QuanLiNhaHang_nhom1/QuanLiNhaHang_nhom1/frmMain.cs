@@ -36,12 +36,7 @@ namespace QuanLiNhaHang_nhom1
     
         private  void OntimeEvent(Object source,System.Timers.ElapsedEventArgs e)
         {
-            int x = button1.Location.X;
-            while (button1.Location.X < 500)
-            {
-                x += 1;
-                button1.Location = new Point(x, button1.Location.Y);
-            }
+           
         }
         private void mnuThoat_Click(object sender, EventArgs e)
         {
@@ -82,7 +77,25 @@ namespace QuanLiNhaHang_nhom1
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            HuyDatBan datBan = new HuyDatBan();
+            datBan.Size = new Size(500, Screen.GetWorkingArea(this).Height);
+            datBan.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             
+        }
+
+        private void thêmBànToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThemBan themBan = new ThemBan();
+            themBan.ShowDialog();
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
         }
     }
 }
