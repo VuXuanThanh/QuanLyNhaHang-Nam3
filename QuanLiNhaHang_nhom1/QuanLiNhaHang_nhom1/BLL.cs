@@ -112,21 +112,12 @@ namespace QuanLiNhaHang_nhom1
 
         public DataTable getListTable(DateTime ThoiGianDatBan)
         {
-            String sql = "select MaBan from DATBAN where Datediff(hour,ThoiGianTra,'" + ThoiGianDatBan+"')>0";
-            //String sql2 = "select MaBan from DATBAN where Datediff(hour, '12/24/2020 9:00:00 AM', '12/24/2020 9:00:00 AM') = 0";
-            //String sql = "select Datediff(hour,ThoiDiemKetThuc,'"+ThoiGianDatBan+"') as time1 from DATBAN";
+            String sql = "select MaBan from DATBAN where Datediff(hour,ThoiGianTra,'" + ThoiGianDatBan+"')<0";
+           
             DataTable dt = new DataTable();
             SqlConnection con = DAL.connect();
             con.Open();
-            //SqlCommand cmd = new SqlCommand(sql,con);
-
-            //SqlDataReader dataReader = cmd.ExecuteReader();
-            //while (dataReader.Read())
-            //{
-
-            //    dt.Rows.Add(dataReader.GetInt32(0).ToString());
-            //}
-            //dataReader.Close();
+            
             SqlCommand com = new SqlCommand(sql, con);
             SqlDataReader dr = com.ExecuteReader();
             dt.Load(dr);
@@ -152,7 +143,7 @@ namespace QuanLiNhaHang_nhom1
         public void insertCustomers(String TenKH,String DiaChi,String SDT,DateTime NgayGiaNhap)
         {
             
-            String sql = "insert into KHACHHANG(TenKH,DiaChi,DienThoai,NgayGiaNhap) values('" + TenKH + "','" + DiaChi + "','" + SDT + "', CAST(GETDATE() as Date) )";
+            String sql = "insert into KHACHHANG(TenKH,DiaChi,DienThoai,NgayGiaNhap) values(N'" + TenKH + "',N'" + DiaChi + "','" + SDT + "', CAST(GETDATE() as Date) )";
             DAL.executeNonQuery(sql);
         }
 
@@ -160,16 +151,21 @@ namespace QuanLiNhaHang_nhom1
         public void insertCustomers(String TenKH, String DiaChi, String SDT,int SoDiemTichLuy, DateTime NgayGiaNhap)
             //khởi tạo khách hàng với điểm tích lũy bằng 0
         {
-            String sql= "insert into KHACHHANG(TenKH,DiaChi,DienThoai,SoDiemTichLuy,NgayGiaNhap) values('" + TenKH + "','" + DiaChi + "','" + SDT + "',"+SoDiemTichLuy+",  CAST(GETDATE() as Date)  )";
+            String sql= "insert into KHACHHANG(TenKH,DiaChi,DienThoai,SoDiemTichLuy,NgayGiaNhap) values(N'" + TenKH + "',N'" + DiaChi + "','" + SDT + "',"+SoDiemTichLuy+",  CAST(GETDATE() as Date)  )";
             DAL.executeNonQuery(sql);
         }
-        public void insertDATBAN(String MaKH,String MaBan,DateTime ThoiGianDat,DateTime ThoiGianTra)
+        public void insertDATBAN(String MaKH,String MaBan,DateTime ThoiGianDat,DateTime ThoiGianTra,int landat)
         {
-            String sql = "insert into DATBAN values('" + MaKH + "','" + MaBan + "','" + ThoiGianDat + "','" + ThoiGianTra + "')";
+            String sql = "insert into DATBAN values('" + MaKH + "','" + MaBan + "',"+landat+",'" + ThoiGianDat + "','" + ThoiGianTra + "')";
             DAL.executeNonQuery(sql);
         }
 
-        
+        public String getLatDatBan(String MaBan,String MaKH)
+        {
+            String sql = "select count(*) from DATBAN where MaKH='" + MaKH + "' and MaBan='" + MaBan + "'";
+            String result=DAL.getValue(sql);
+            return result;
+        }
 
 
         //tìm kiếm khách hàng đã từng sử dụng dịch vụ của nhà hàng nhà hàng
@@ -182,11 +178,32 @@ namespace QuanLiNhaHang_nhom1
            
             
         }
+        public static DataTable getDiningTableExixs(String SDT)
+        {
+            String sql = "select * from KHACHHANG inner join DATBAN on KHACHHANG.MaKH=DATBAN.MaKH where DienThoai='"+SDT+"'";
+            DataTable dt = DAL.getTable(sql);
+            return dt;
+        }
+        public void DeleteDatBan(String MaKH)
+        {
+            String sql = "delete DATBAN where MaKH='" + MaKH + "'";
+            DAL.executeNonQuery(sql);
+        }
 
+        public DataTable getDanhSachBan()
+        {
+            String sql = "select * from DANHSACHBAN";
+            DataTable dt = DAL.getTable(sql);
+            return dt;
+            
+        }
 
+         public void insertDanhSachDatBan(String TenBan)
+        {
+            String sql = "insert into DANHSACHBAN(TenBan) values (N'" + TenBan + "')";
+            DAL.executeNonQuery(sql);
 
-
-
+        }
 
         //Bll của thành
 

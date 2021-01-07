@@ -82,13 +82,25 @@ namespace QuanLiNhaHang_nhom1
 
         private void button3_Click(object sender, EventArgs e)
         {
+
             HuyDatBan datBan = new HuyDatBan();
+            datBan.Size = new Size(500, Screen.GetWorkingArea(this).Height);
             datBan.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void thêmBànToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThemBan themBan = new ThemBan();
+            themBan.ShowDialog();
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace QuanLiNhaHang_nhom1
 {
     public partial class frmBanAn : Form
     {
+        public String Path = Directory.GetCurrentDirectory();
         public static BLL bll = new BLL();
         public static DateTime ThoiGianHen { get; set; }
         
@@ -19,34 +21,119 @@ namespace QuanLiNhaHang_nhom1
         public frmBanAn()
         {
             InitializeComponent();
+           
+            loadPanle(splitContainer2);
             AppencaCheckboxToButton();
             dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm  tt";
 
             dateTimePicker1.Value = DateTime.Today;
 
         }
-
-
-        private void frmBanAn_Load(object sender, EventArgs e)
+       
+        public void loadPanle(SplitContainer splitContainer1)
         {
+             DataTable dt = bll.getDanhSachBan();
+
+            int x = 0;
+            for (int i = 1; i <= dt.Rows.Count; i++)
+            {
+                x = i;
+                
+                Button button = new Button();
+                
+                CheckBox checkBox = new CheckBox();
+                button.Text = "Bàn "+i.ToString();
+                button.Name =i.ToString();
+                button.Image = Image.FromFile(Path + @"\Images\bandoi.jpg");
+                checkBox.Image= Image.FromFile(Path + @"\Images\bandoi.jpg");
+                button.TextAlign = ContentAlignment.TopCenter;
+                checkBox.TextAlign = ContentAlignment.TopCenter;
+                checkBox.Text = "Bàn "+i.ToString();
+                checkBox.Name = i.ToString();
+
+                button.Size = new Size(150, 100);
+
+                checkBox.Size = new Size(150, 100);
+                checkBox.Appearance = Appearance.Button;
+
+                if (i % 3 == 1)
+                {
+
+                    //button.Location = new Point(37,50*i);
+                    button.Left = 0;
+                    
+                    button.Top = 40*x;
+
+                    checkBox.Left = 0;
+                    checkBox.Top = 40*x;
+
+                    splitContainer1.Panel1.Controls.Add(button);
+                    splitContainer1.Panel2.Controls.Add(checkBox);
+                    button.Click += new EventHandler(this.button_Click);
+                   
+                    
+                }
+                if (i % 3 == 2)
+                {
+                    //button.Location = new Point(290, 50  * i-(i-1)*50);
+                    button.Left = 150;
+                    button.Top = 40*(x-1);
+                    checkBox.Left = 150;
+                    checkBox.Top = 40* (x - 1);
+
+
+                    splitContainer1.Panel2.Controls.Add(checkBox);
+                    splitContainer1.Panel1.Controls.Add(button);
+                    button.Click += new EventHandler(this.button_Click);
+                    
+                }
+                if (i % 3 == 0)
+                {
+                    //button.Location = new Point(290, 50  * i-(i-1)*50);
+                    button.Left = 300;
+                    button.Top = 40*(x-2);
+                    checkBox.Left = 300;
+                    checkBox.Top = 40*(x-2);
+
+
+                    splitContainer1.Panel2.Controls.Add(checkBox);
+                    splitContainer1.Panel1.Controls.Add(button);
+                    button.Click += new EventHandler(this.button_Click);
+                    
+                }
+
+
+            }
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+            Button button = (sender) as Button;
+            String str=button.Name;
+          
+            DataTable listCustomer = bll.getCustomerDininedTable(str);
+            getDetailDiningTable(str, listCustomer);
             
-            checkBox1_CheckedChanged(sender, e);
         }
 
-        private void dgvBanAn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public  void frmBanAn_Load(object sender, EventArgs e)
         {
-
+           
+           
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
+       
 
-        }
+        
         public void getDetailDiningTable(String MaBan, DataTable listWithTable_ID)
         {
-
+            
+            
             ChiTietDatBan chiTietDatBan = new ChiTietDatBan(MaBan, listWithTable_ID);
+            chiTietDatBan.Size = new Size(900, Screen.GetWorkingArea(this).Height);
+            
             chiTietDatBan.ShowDialog();
+            Close();
         }
         // hàm lấy ra mã khách hàng cuối cùng
         public static String getLastIndexCustomer(String MaKHLastIndexof)
@@ -67,86 +154,70 @@ namespace QuanLiNhaHang_nhom1
             }
         }
 
-        private void comboBox2_KeyUp(object sender, KeyEventArgs e)
-        {
-        }
-
-        private void comboBox2_SelectedValueChanged(object sender, EventArgs e)
-        {
-            DateTime data= dateTimePicker1.Value;
-            DataTable dt = bll.getListTable(data);
-            String list = "";
-            
-            if (comboBox2.SelectedIndex.Equals(1))
-            {
-                foreach (Button btn in splitContainer1.Panel1.Controls.OfType<Button>())
-                {
-                    
-
-
-                        btn.Enabled = true;
-                        //btn.Name==
-                    
-                }
-
-                foreach (DataRow row in dt.Rows)
-                {
-                  int a=row["MaBan"].ToString().Length;
-                    list ="button"+ row["MaBan"].ToString()[a-1].ToString();
-                    //for (int i = 0; i < splitContainer1.Panel1.Controls.OfType<Button>().Count(); i++)
-                    //{
-                        foreach (Button btn in splitContainer1.Panel1.Controls.OfType<Button>())
-                        {
-                            if (btn.Name == list)
-                            {
-                                
-
-                                btn.Visible = false;
-                                
-                            }
-                        }
-
-
-
-                    
-
-                }
-            }
-            if (comboBox2.SelectedIndex.Equals(0))
-            {
-                foreach (Button btn in splitContainer1.Panel1.Controls.OfType<Button>())
-                {
-                    
-
-
-                        btn.Visible = true;
-                        //btn.Name==
-                    
-                }
-                foreach (DataRow row in dt.Rows)
-                {
-                    int a = row["MaBan"].ToString().Length;
-                    list = "button" + row["MaBan"].ToString()[a - 1].ToString();
-                    //for (int i = 0; i < splitContainer1.Panel1.Controls.OfType<Button>().Count(); i++)
-                    //{
-                        
-
-
-                    //}
-                    foreach(Button btn in splitContainer1.Panel1.Controls.OfType<Button>())
-                    {
-                        if (btn.Name == list)
-                        {
-                            btn.Enabled = false;
-                        }
-                    }
-
-                }
-            }
-           // MessageBox.Show(.ToString());
-        }
+       
 
         
+        public  void EnableButton(DateTime data)
+        {
+           
+            DataTable dt = bll.getListTable(data);
+            String list = "";
+
+
+
+            foreach (Button btn in splitContainer2.Panel1.Controls.OfType<Button>())
+            {
+                //MessageBox.Show("đã đi qua đây");
+                btn.Enabled = true;
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+
+                list = row["MaBan"].ToString()[row["MaBan"].ToString().Length - 1].ToString();
+
+                foreach (Button btn in splitContainer2.Panel1.Controls.OfType<Button>())
+                {
+
+                    if (btn.Name == list)
+                    {
+
+                        btn.Enabled = false;
+
+                    }
+                }
+
+            }
+        }
+        public void EnableCheckbox(DateTime data)
+        {
+            DataTable dt = bll.getListTable(data);
+            String list = "";
+
+
+
+            foreach (CheckBox check in splitContainer2.Panel2.Controls.OfType<CheckBox>())
+            {
+                
+                check.Enabled = true;
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+
+                list = row["MaBan"].ToString()[row["MaBan"].ToString().Length - 1].ToString();
+
+                foreach (CheckBox check in splitContainer2.Panel2.Controls.OfType<CheckBox>())
+                {
+
+                    if (check.Name == list)
+                    {
+
+                        check.Enabled = false;
+
+                    }
+                }
+
+            }
+        }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -161,7 +232,7 @@ namespace QuanLiNhaHang_nhom1
         private void btnThem_Click(object sender, EventArgs e)
         {
             List<CheckBox> checkBoxes = new List<CheckBox>();
-            foreach(CheckBox checkBox in splitContainer2.Panel1.Controls.OfType<CheckBox>())
+            foreach(CheckBox checkBox in splitContainer2.Panel2.Controls.OfType<CheckBox>())
             {
                 if (checkBox.Checked)
                 {
@@ -178,40 +249,39 @@ namespace QuanLiNhaHang_nhom1
                 chiTietDatBan_NhieuBan_Cs.Size = new Size(500, Screen.GetWorkingArea(this).Height);
                 chiTietDatBan_NhieuBan_Cs.ShowDialog();
             }
-            
-            
+
+            Close();
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            comboBox2_SelectedValueChanged(sender, e);
+            //comboBox2_SelectedValueChanged(sender, e);
             ThoiGianHen = dateTimePicker1.Value;
+            EnableButton(ThoiGianHen);
+            EnableCheckbox(ThoiGianHen);
+
+
+
 
         }
 
-        private void toggleSwitch1_Toggled(object sender, EventArgs e)
-        {
-            
-        }
+       
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
             {
                 btnThem.Visible = true;
-                //splitContainer2.Panel1.Visible = true;
-                splitContainer2.Panel2Collapsed = true;
+                
+                splitContainer2.Panel1Collapsed = true;
             }
             else
             {
                 btnThem.Visible = false;
-                splitContainer2.Panel1Collapsed = true;
-                //splitContainer2.Panel2.Visible = true;
+                splitContainer2.Panel2Collapsed = true;
+                
             }
         }
 
@@ -224,200 +294,6 @@ namespace QuanLiNhaHang_nhom1
             }
         }
 
-       
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("6");
-            getDetailDiningTable("6", listCustomer);
-        }
-
-        private void button26_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("26");
-            getDetailDiningTable("26", listCustomer);
-        }
-
-        private void button27_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("27");
-            getDetailDiningTable("27", listCustomer);
-        }
-
-        private void button28_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("28");
-            getDetailDiningTable("28", listCustomer);
-        }
-
-        private void button29_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("29");
-            getDetailDiningTable("29", listCustomer);
-        }
-
-        private void button30_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("30");
-            getDetailDiningTable("30", listCustomer);
-        }
-
-        private void button17_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("17");
-            getDetailDiningTable("17", listCustomer);
-        }
-
-        private void button18_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("18");
-            getDetailDiningTable("18", listCustomer);
-        }
-
-        private void button19_Click(object sender, EventArgs e)
-        {
-
-
-            DataTable listCustomer = bll.getCustomerDininedTable("19");
-            getDetailDiningTable("19", listCustomer);
-        }
-
-        private void button20_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("20");
-            getDetailDiningTable("20", listCustomer);
-        }
-
-        private void button21_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("21");
-            getDetailDiningTable("21", listCustomer);
-        }
-
-        private void button22_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("22");
-            getDetailDiningTable("22", listCustomer);
-        }
-
-        private void button23_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("23");
-            getDetailDiningTable("23", listCustomer);
-        }
-
-        private void button24_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("24");
-            getDetailDiningTable("24", listCustomer);
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("9");
-            getDetailDiningTable("9", listCustomer);
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("10");
-            getDetailDiningTable("10", listCustomer);
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("11");
-            getDetailDiningTable("11", listCustomer);
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("12");
-            getDetailDiningTable("12", listCustomer);
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("13");
-            getDetailDiningTable("13", listCustomer);
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("14");
-            getDetailDiningTable("14", listCustomer);
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("15");
-            getDetailDiningTable("15", listCustomer);
-        }
-
-        private void button16_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("16");
-            getDetailDiningTable("16", listCustomer);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("5");
-            getDetailDiningTable("5", listCustomer);
-        }
-
-        private void button25_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("25");
-            getDetailDiningTable("25", listCustomer);
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("7");
-            getDetailDiningTable("7", listCustomer);
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("8");
-            getDetailDiningTable("8", listCustomer);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("3");
-            getDetailDiningTable("3", listCustomer);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("4");
-            getDetailDiningTable("4", listCustomer);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("2");
-            getDetailDiningTable("2", listCustomer);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DataTable listCustomer = bll.getCustomerDininedTable("1");
-            getDetailDiningTable("1", listCustomer);
-        }
-
-
-
-
-
-
-
-        // lấy thông tin từ bàn truyền sang form chi tiết đặt bàn
-
-
-
-
+        
     }
 }

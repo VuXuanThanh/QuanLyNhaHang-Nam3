@@ -55,6 +55,9 @@ namespace QuanLiNhaHang_nhom1
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.bànĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thêmBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -71,11 +74,12 @@ namespace QuanLiNhaHang_nhom1
             this.mnuThongKe,
             this.mnuTimKiem,
             this.mnuTroGiup,
-            this.mnuTienIch});
+            this.mnuTienIch,
+            this.bànĂnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1750, 44);
+            this.menuStrip1.Size = new System.Drawing.Size(1750, 46);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -87,7 +91,7 @@ namespace QuanLiNhaHang_nhom1
             this.mnuDangXuat});
             this.mnuTrangChu.Name = "mnuTrangChu";
             this.mnuTrangChu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mnuTrangChu.Size = new System.Drawing.Size(140, 36);
+            this.mnuTrangChu.Size = new System.Drawing.Size(140, 38);
             this.mnuTrangChu.Text = "&Trang chủ";
             // 
             // mnuThoat
@@ -118,7 +122,7 @@ namespace QuanLiNhaHang_nhom1
             this.mnuQLKH,
             this.nguyênLiệuToolStripMenuItem});
             this.mnuQuanLi.Name = "mnuQuanLi";
-            this.mnuQuanLi.Size = new System.Drawing.Size(112, 36);
+            this.mnuQuanLi.Size = new System.Drawing.Size(112, 38);
             this.mnuQuanLi.Text = "&Quản lí";
             // 
             // mnuQLNCC
@@ -151,37 +155,37 @@ namespace QuanLiNhaHang_nhom1
             // mnuThucDon
             // 
             this.mnuThucDon.Name = "mnuThucDon";
-            this.mnuThucDon.Size = new System.Drawing.Size(136, 36);
+            this.mnuThucDon.Size = new System.Drawing.Size(136, 38);
             this.mnuThucDon.Text = "&Thực đơn";
             // 
             // mnuHoaDon
             // 
             this.mnuHoaDon.Name = "mnuHoaDon";
-            this.mnuHoaDon.Size = new System.Drawing.Size(127, 36);
+            this.mnuHoaDon.Size = new System.Drawing.Size(127, 38);
             this.mnuHoaDon.Text = "&Hóa đơn";
             // 
             // mnuThongKe
             // 
             this.mnuThongKe.Name = "mnuThongKe";
-            this.mnuThongKe.Size = new System.Drawing.Size(136, 36);
+            this.mnuThongKe.Size = new System.Drawing.Size(136, 38);
             this.mnuThongKe.Text = "&Thống kê";
             // 
             // mnuTimKiem
             // 
             this.mnuTimKiem.Name = "mnuTimKiem";
-            this.mnuTimKiem.Size = new System.Drawing.Size(134, 36);
+            this.mnuTimKiem.Size = new System.Drawing.Size(134, 38);
             this.mnuTimKiem.Text = "&Tìm kiếm";
             // 
             // mnuTroGiup
             // 
             this.mnuTroGiup.Name = "mnuTroGiup";
-            this.mnuTroGiup.Size = new System.Drawing.Size(123, 36);
+            this.mnuTroGiup.Size = new System.Drawing.Size(123, 38);
             this.mnuTroGiup.Text = "&Trợ giúp";
             // 
             // mnuTienIch
             // 
             this.mnuTienIch.Name = "mnuTienIch";
-            this.mnuTienIch.Size = new System.Drawing.Size(119, 36);
+            this.mnuTienIch.Size = new System.Drawing.Size(119, 38);
             this.mnuTienIch.Text = "&Tiện ích";
             // 
             // toolStrip1
@@ -191,7 +195,7 @@ namespace QuanLiNhaHang_nhom1
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton3});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 44);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 46);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.toolStrip1.Size = new System.Drawing.Size(1750, 30);
@@ -279,6 +283,29 @@ namespace QuanLiNhaHang_nhom1
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // bànĂnToolStripMenuItem
+            // 
+            this.bànĂnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thêmBànToolStripMenuItem,
+            this.testToolStripMenuItem});
+            this.bànĂnToolStripMenuItem.Name = "bànĂnToolStripMenuItem";
+            this.bànĂnToolStripMenuItem.Size = new System.Drawing.Size(108, 38);
+            this.bànĂnToolStripMenuItem.Text = "Bàn ăn";
+            // 
+            // thêmBànToolStripMenuItem
+            // 
+            this.thêmBànToolStripMenuItem.Name = "thêmBànToolStripMenuItem";
+            this.thêmBànToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.thêmBànToolStripMenuItem.Text = "Thêm bàn";
+            this.thêmBànToolStripMenuItem.Click += new System.EventHandler(this.thêmBànToolStripMenuItem_Click);
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.testToolStripMenuItem.Text = "test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -334,6 +361,9 @@ namespace QuanLiNhaHang_nhom1
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ToolStripMenuItem bànĂnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thêmBànToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
     }
 }
 

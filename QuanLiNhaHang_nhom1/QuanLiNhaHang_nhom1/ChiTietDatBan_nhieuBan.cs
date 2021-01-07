@@ -17,7 +17,7 @@ namespace QuanLiNhaHang_nhom1
         public ChiTietDatBan_nhieuBan_cs(List<CheckBox> checkBoxes)
         {
             InitializeComponent();
-            
+            radioButton2.Checked=true;
             foreach (CheckBox checkBox in checkBoxes)
             {
                 label1.Text += checkBox.Text + " ";
@@ -46,24 +46,51 @@ namespace QuanLiNhaHang_nhom1
                 }
             }
             Char[] Soban = result.ToCharArray();
-            if (radioButton1.Checked)
+            if (SDT.Text == "")
             {
-                bll.insertCustomers(TenKH.Text, DiaChi.Text, SDT.Text, 0, NgayGiaNhap.Value);
+                MessageBox.Show("Bạn thiếu Số điện thoại khách hàng", "Nhập thiếu thông tin khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SDT.Focus();
+                return;
+            }
+            if (TenKH.Text == "")
+            {
+                MessageBox.Show("Bạn thiếu tên khách hàng", "Nhập thiếu thông tin khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TenKH.Focus(); return;
+            }
+            if (!radioButton1.Checked && !radioButton2.Checked)
+            {
+                MessageBox.Show("Bạn Chưa lựa chọn hình thức tính điểm tích lũy cho khách hàng", "Nhập thiếu thông tin khách hàng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                groupBox1.Focus(); return;
+            }
+            if (ThoiGianTra.Value.Subtract(ThoiGianDat.Value).TotalHours < 2)
+            {
                 
-                foreach (Char i in Soban)
-                {
-                    //bll.insertDATBAN(MaKH.Text, "BAN" + i, ThoiGianDat.Value, ThoiGianTra.Value);
-                    MessageBox.Show("BAN" + i);
-                }
-            }else if (radioButton2.Checked)
+                MessageBox.Show("Thời gian tối thiểu để đặt bàn là từ 2 tiếng", "Nhập Sai thông tin yêu cầu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
             {
-                bll.insertCustomers(TenKH.Text, DiaChi.Text, SDT.Text, NgayGiaNhap.Value);
-                foreach (Char i in Soban)
+                if (radioButton1.Checked)
                 {
-                    //bll.insertDATBAN(MaKH.Text, "MaBan" + i, ThoiGianDat.Value, ThoiGianTra.Value);
-                    MessageBox.Show("BAN" + i);
+                    bll.insertCustomers(TenKH.Text, DiaChi.Text, SDT.Text, 0, NgayGiaNhap.Value);
+
+                    foreach (Char i in Soban)
+                    {
+                        bll.insertDATBAN(MaKH.Text, "BAN" + i, ThoiGianDat.Value, ThoiGianTra.Value,1);
+
+                    }
+                }
+                else if (radioButton2.Checked)
+                {
+                    bll.insertCustomers(TenKH.Text, DiaChi.Text, SDT.Text, NgayGiaNhap.Value);
+                    foreach (Char i in Soban)
+                    {
+                        bll.insertDATBAN(MaKH.Text, "MaBan" + i, ThoiGianDat.Value, ThoiGianTra.Value,1);
+
+                    }
                 }
             }
+            
 
 
         }
