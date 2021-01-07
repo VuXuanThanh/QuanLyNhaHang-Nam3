@@ -36,12 +36,7 @@ namespace QuanLiNhaHang_nhom1
     
         private  void OntimeEvent(Object source,System.Timers.ElapsedEventArgs e)
         {
-            int x = button1.Location.X;
-            while (button1.Location.X < 500)
-            {
-                x += 1;
-                button1.Location = new Point(x, button1.Location.Y);
-            }
+           
         }
         private void mnuThoat_Click(object sender, EventArgs e)
         {
