@@ -98,6 +98,14 @@ namespace QuanLiNhaHang_nhom1
             return tblKH;
         }
 
+
+
+
+        /// <summary>
+        /// đây là của hiển
+        /// </summary>
+        /// <returns></returns>
+
         //get số đt khach hang
         public static DataTable SDTKH()
         {
@@ -132,13 +140,7 @@ namespace QuanLiNhaHang_nhom1
 
             return dt;
         }
-        public DataTable getTableWithCountChair(int CountChair)
-        {
-            String sql = "select BaseID from DANHSACHBAN where SoCho="+CountChair;
-            DataTable dt = new DataTable();
-            dt = DAL.getTable(sql);
-            return dt;
-        }
+       
         //Thêm khách hàng mới và không muốn Lưu thông tin cá nhân(k làm thẻ tích điểm)
         public void insertCustomers(String TenKH,String DiaChi,String SDT,DateTime NgayGiaNhap)
         {
@@ -204,6 +206,13 @@ namespace QuanLiNhaHang_nhom1
             DAL.executeNonQuery(sql);
 
         }
+
+
+
+        /// <summary>
+        /// hết phần của hiển
+        /// </summary>
+        /// <returns></returns>
 
         //Bll của thành
 
